@@ -1,0 +1,95 @@
+NOTES:
+
+These codes are in the form of 8 digit hex codes. 
+
+2 hex digits represents 8 bits.
+
+That means these are 4 byte hex codes or 32 bits.
+
+
+
+POWER 
+
+FFFFFFFF
+20DF10EF
+20DF10EF
+
+
+----------------------------
+APPLE TV
+----------------------------
+
+77E1FA6B - PLAY/PAUSE
+
+
+
+Received: 
+OFF 	ON
+13232 usec, 9420 usec
+4540 usec, 640 usec
+520 usec, 640 usec
+1640 usec, 640 usec
+1640 usec, 640 usec
+1660 usec, 640 usec
+500 usec, 620 usec
+1680 usec, 620 usec
+1660 usec, 620 usec
+1660 usec, 620 usec
+1660 usec, 620 usec
+1680 usec, 620 usec
+1660 usec, 620 usec
+540 usec, 600 usec
+540 usec, 620 usec
+540 usec, 620 usec
+540 usec, 600 usec
+1680 usec, 620 usec
+1660 usec, 620 usec
+1660 usec, 620 usec
+1680 usec, 600 usec
+1680 usec, 620 usec
+1680 usec, 600 usec
+540 usec, 620 usec
+1660 usec, 620 usec
+540 usec, 620 usec
+520 usec, 620 usec
+1680 usec, 600 usec
+1680 usec, 620 usec
+540 usec, 620 usec
+1660 usec, 620 usec
+540 usec, 620 usec
+1660 usec, 620 usec
+1680 usec, 620 usec
+34860 usec, 9340 usec
+4560 usec, 620 usec
+540 usec, 600 usec
+1680 usec, 600 usec
+1680 usec, 620 usec
+1680 usec, 600 usec
+540 usec, 620 usec
+1660 usec, 620 usec
+1680 usec, 620 usec
+1660 usec, 620 usec
+1660 usec, 620 usec
+1680 usec, 600 usec
+1680 usec, 620 usec
+520 usec, 620 usec
+540 usec, 620 usec
+540 usec, 620 usec
+520 usec, 620 usec
+1680 usec, 600 usec
+1680 usec, 620 usec
+540 usec, 600 usec
+1680 usec, 620 usec
+520 usec, 620 usec
+540 usec, 620 usec
+540 usec, 620 usec
+520 usec, 620 usec
+540 usec, 620 usec
+540 usec, 600 usec
+1680 usec, 620 usec
+1660 usec, 620 usec
+540 usec, 620 usec
+1660 usec, 620 usec
+540 usec, 620 usec
+1660 usec, 620 usec
+1680 usec, 620 usec
