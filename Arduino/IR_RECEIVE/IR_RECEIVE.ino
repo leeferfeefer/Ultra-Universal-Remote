@@ -1,11 +1,5 @@
-// We need to use the 'raw' pin reading methods
-// because timing is very important here and the digitalRead()
-// procedure is slower!
-//uint8_t IRpin = 2;
-// Digital pin #2 is the same as Pin D2 see
-// http://arduino.cc/en/Hacking/PinMapping168 for the 'raw' pin mapping
 #define IRpin_PIN      PIND
-#define IRpin          5
+#define IRpin          2
  
 // the maximum pulse we'll listen for - 65 milliseconds is a long time
 #define MAXPULSE 65000
@@ -30,7 +24,7 @@ void loop(void) {
  
  
 //  while (digitalRead(IRpin)) { // this is too slow!
-    while (IRpin_PIN & (1 << IRpin)) {
+    while (IRpin_PIN & _BV(IRpin)) {
      // pin is still HIGH
  
      // count off another few microseconds
