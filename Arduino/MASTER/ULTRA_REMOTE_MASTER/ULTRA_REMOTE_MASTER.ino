@@ -33,6 +33,7 @@ enum Command { UNDEF, RED, ORANGE, YELLOW, GREEN,  BLUE, PURPLE };
 
 // DEN TV
 
+unsigned int den_tv_volume_down[68] = {0xB3,0x58,0xC,0xA,0xC,0xA,0xC,0x21,0xB,0xB,0xB,0xB,0xC,0xA,0xC,0xA,0xC,0xA,0xC,0x21,0xB,0x21,0xC,0xA,0xC,0x21,0xB,0x21,0xC,0x20,0xC,0x21,0xB,0x21,0xC,0x20,0xC,0x21,0xC,0xA,0xC,0xA,0xC,0xA,0xC,0xA,0xC,0xB,0xB,0xB,0xB,0xB,0xC,0xA,0xC,0x20,0xC,0x21,0xC,0x20,0xC,0x21,0xB,0x21,0xC,0x20,0xC,};
 
 
 
@@ -75,21 +76,46 @@ void loop() {
     userInput = Serial.read();
     
     switch(userInput) {
-      case 'ApplePlayPause':
+      case 'A':
+
+        
         Serial.print("Sending");
         irsend.sendRaw(apple_play_pause, 136, 38); // 38 = kHz
         Serial.print("Sent");
 
+        /*
+
         Serial.print("Sending");
         irsend.sendRaw(apple_menu,68,38);
         Serial.print("Sent");
+
+*/
         
         delay(100);          
+        break;
+
+      case 'D':
+
+        for (int i = 0; i < 10; i++) {
+           Serial.print("Sending");
+           irsend.sendRaw(den_tv_volume_down,68,38);
+           Serial.print("Sent");
+           delay(100);     
+        }
+       
         break;
       default:
         Serial.print("Command unknown");
     }
   }
+}
+
+
+
+
+/////////////////////////////
+//      Custom Methods
+/////////////////////////////
 
 
 
@@ -136,4 +162,4 @@ void loop() {
 
 */
   
-}
+
