@@ -45,9 +45,7 @@ const unsigned int apple_play_pause[136] = {13232, 9420, 4540, 640, 520, 640, 16
                                             , 540, 620, 1660, 620, 540, 620, 1660, 620, 1680, 620
                                            };
 
-*/
 
-/*
 
 const unsigned int apple_menu[136] = {11372, 9420, 
 4520, 640, 
@@ -117,7 +115,6 @@ const unsigned int apple_menu[136] = {11372, 9420,
 1640, 640, 
 1660, 640};
 
-*/
 
 const unsigned int apple_select[136] = {24532, 9420,
                                         4540, 640,
@@ -462,6 +459,7 @@ const unsigned int apple_right[136] = {30696, 9300,
 1740, 560, 
 1760, 540};
 
+*/
 
 IRsend irsend;
 
@@ -480,13 +478,14 @@ void setup() {
 void loop() {
 
 
+/*
   if (Serial.available() > 0) {
 
     userInput = Serial.read();
 
     switch (userInput) {
 
-      /*
+     
       case 'A':
         sendCommand(apple_play_pause, sizeof(apple_play_pause) / sizeof(apple_play_pause[0]));
         break;
@@ -495,7 +494,7 @@ void loop() {
         sendCommand(apple_menu, sizeof(apple_menu) / sizeof(apple_menu[0]));
         break;
 
-        */
+       
 
       case 'C':
         sendCommand(apple_select, sizeof(apple_select) / sizeof(apple_select[0]));
@@ -522,6 +521,15 @@ void loop() {
         Serial.print("Command unknown");
     }
   }
+
+  */
+
+
+
+
+
+
+  
 }
 
 
