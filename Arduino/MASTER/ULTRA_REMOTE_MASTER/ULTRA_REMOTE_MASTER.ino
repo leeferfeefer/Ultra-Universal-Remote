@@ -77,28 +77,14 @@ void loop() {
     
     switch(userInput) {
       case 'A':
-
-        
-        Serial.print("Sending");
-        irsend.sendRaw(apple_play_pause, 136, 38); // 38 = kHz
-        Serial.print("Sent");
-
-        /*
-
-        Serial.print("Sending");
-        irsend.sendRaw(apple_menu,68,38);
-        Serial.print("Sent");
-
-*/
-        
-        delay(100);          
+        sendCommand(apple_play_pause, 136, 38);
         break;
 
       case 'D':
 
         for (int i = 0; i < 10; i++) {
            Serial.print("Sending");
-           irsend.sendRaw(den_tv_volume_down,68,38);
+           irsend.sendRaw(den_tv_volume_down, 68, 38);
            Serial.print("Sent");
            delay(100);     
         }
@@ -119,6 +105,23 @@ void loop() {
 
 
 
+// Sends raw data command to device
+void sendCommand(int rawData[]) {
+  
+  Serial.print("Sending");
+  irsend.sendRaw(rawData, sizeof(rawData) / sizeof(rawData[0]), 38); // 38kHz
+  Serial.print("Sent");
+  
+  /*
+  
+  Serial.print("Sending");
+  irsend.sendRaw(apple_menu,68,38);
+  Serial.print("Sent");
+  
+  */
+        
+  delay(100);     
+}
 
 
   
