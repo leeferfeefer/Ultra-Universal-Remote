@@ -1,3 +1,21 @@
+/* Raw IR decoder sketch!
+ 
+ This sketch/program uses the Arduno and a PNA4602 to 
+ decode IR received. This can be used to make a IR receiver
+ (by looking for a particular code)
+ or transmitter (by pulsing an IR LED at ~38KHz for the
+ durations detected 
+ 
+ Code is public domain, check out www.ladyada.net and adafruit.com
+ for more tutorials! 
+ */
+ 
+// We need to use the 'raw' pin reading methods
+// because timing is very important here and the digitalRead()
+// procedure is slower!
+//uint8_t IRpin = 2;
+// Digital pin #2 is the same as Pin D2 see
+// http://arduino.cc/en/Hacking/PinMapping168 for the 'raw' pin mapping
 #define IRpin_PIN      PIND
 #define IRpin          2
  
@@ -24,7 +42,7 @@ void loop(void) {
  
  
 //  while (digitalRead(IRpin)) { // this is too slow!
-    while (IRpin_PIN & _BV(IRpin)) {
+    while (IRpin_PIN & (1 << IRpin)) {
      // pin is still HIGH
  
      // count off another few microseconds
@@ -62,10 +80,14 @@ void loop(void) {
  
 void printpulses(void) {
   Serial.println("\n\r\n\rReceived: \n\rOFF \tON");
+  int count = 0;
   for (uint8_t i = 0; i < currentpulse; i++) {
     Serial.print(pulses[i][0] * RESOLUTION, DEC);
-    Serial.print(" usec, ");
+  Serial.print(", ");
     Serial.print(pulses[i][1] * RESOLUTION, DEC);
-    Serial.println(" usec");
+  Serial.println(", ");
+    count++;
   }
+  Serial.println(count*2);
 }
+
