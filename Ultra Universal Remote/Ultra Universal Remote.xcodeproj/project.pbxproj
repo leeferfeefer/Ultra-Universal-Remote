@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		17123B2B1EB41D7E00C0C621 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17123B2A1EB41D7E00C0C621 /* main.m */; };
 		17123B2E1EB41D7E00C0C621 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17123B2D1EB41D7E00C0C621 /* AppDelegate.m */; };
-		17123B311EB41D7E00C0C621 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17123B301EB41D7E00C0C621 /* ViewController.m */; };
 		17123B341EB41D7E00C0C621 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17123B321EB41D7E00C0C621 /* Main.storyboard */; };
 		17123B361EB41D7E00C0C621 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17123B351EB41D7E00C0C621 /* Assets.xcassets */; };
 		17123B391EB41D7E00C0C621 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17123B371EB41D7E00C0C621 /* LaunchScreen.storyboard */; };
 		17123B441EB41D7E00C0C621 /* Ultra_Universal_RemoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17123B431EB41D7E00C0C621 /* Ultra_Universal_RemoteTests.m */; };
 		17123B4F1EB41D7E00C0C621 /* Ultra_Universal_RemoteUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17123B4E1EB41D7E00C0C621 /* Ultra_Universal_RemoteUITests.m */; };
 		17123B5E1EB41DF700C0C621 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17123B5D1EB41DF700C0C621 /* CoreBluetooth.framework */; };
+		17123B611EB425C400C0C621 /* devicesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17123B601EB425C400C0C621 /* devicesTableView.m */; };
+		17123B641EB4379200C0C621 /* deviceRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 17123B631EB4379200C0C621 /* deviceRemote.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +41,6 @@
 		17123B2A1EB41D7E00C0C621 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		17123B2C1EB41D7E00C0C621 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		17123B2D1EB41D7E00C0C621 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		17123B2F1EB41D7E00C0C621 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		17123B301EB41D7E00C0C621 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		17123B331EB41D7E00C0C621 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		17123B351EB41D7E00C0C621 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17123B381EB41D7E00C0C621 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +52,10 @@
 		17123B4E1EB41D7E00C0C621 /* Ultra_Universal_RemoteUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ultra_Universal_RemoteUITests.m; sourceTree = "<group>"; };
 		17123B501EB41D7E00C0C621 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17123B5D1EB41DF700C0C621 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		17123B5F1EB425C400C0C621 /* devicesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = devicesTableView.h; sourceTree = "<group>"; };
+		17123B601EB425C400C0C621 /* devicesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = devicesTableView.m; sourceTree = "<group>"; };
+		17123B621EB4379200C0C621 /* deviceRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deviceRemote.h; sourceTree = "<group>"; };
+		17123B631EB4379200C0C621 /* deviceRemote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deviceRemote.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +110,11 @@
 			children = (
 				17123B2C1EB41D7E00C0C621 /* AppDelegate.h */,
 				17123B2D1EB41D7E00C0C621 /* AppDelegate.m */,
-				17123B2F1EB41D7E00C0C621 /* ViewController.h */,
-				17123B301EB41D7E00C0C621 /* ViewController.m */,
 				17123B321EB41D7E00C0C621 /* Main.storyboard */,
+				17123B5F1EB425C400C0C621 /* devicesTableView.h */,
+				17123B621EB4379200C0C621 /* deviceRemote.h */,
+				17123B631EB4379200C0C621 /* deviceRemote.m */,
+				17123B601EB425C400C0C621 /* devicesTableView.m */,
 				17123B351EB41D7E00C0C621 /* Assets.xcassets */,
 				17123B371EB41D7E00C0C621 /* LaunchScreen.storyboard */,
 				17123B3A1EB41D7E00C0C621 /* Info.plist */,
@@ -288,9 +293,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17123B311EB41D7E00C0C621 /* ViewController.m in Sources */,
 				17123B2E1EB41D7E00C0C621 /* AppDelegate.m in Sources */,
+				17123B641EB4379200C0C621 /* deviceRemote.m in Sources */,
 				17123B2B1EB41D7E00C0C621 /* main.m in Sources */,
+				17123B611EB425C400C0C621 /* devicesTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

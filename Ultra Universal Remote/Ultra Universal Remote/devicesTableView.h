@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  devicesTableView.h
 //  Ultra Universal Remote
 //
 //  Created by Lee Fincher on 4/28/17.
@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
+#import "deviceRemote.h"
 
-@interface ViewController : UIViewController <CBCentralManagerDelegate, CBPeripheralDelegate>
+@interface devicesTableView : UITableViewController <CBCentralManagerDelegate>
 
+
+@property (strong, nonatomic) IBOutlet UITableView *deviceTableView;
 
 @end
