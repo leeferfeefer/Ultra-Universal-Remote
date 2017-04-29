@@ -29,10 +29,9 @@ String device;
 
 
 
-
-// DEN TV
-
-
+////////////////////////
+//    Device Codes
+////////////////////////
 
 /*
 // Apple TV
@@ -494,8 +493,6 @@ void loop() {
         sendCommand(apple_menu, sizeof(apple_menu) / sizeof(apple_menu[0]));
         break;
 
-       
-
       case 'C':
         sendCommand(apple_select, sizeof(apple_select) / sizeof(apple_select[0]));
         break;
@@ -540,8 +537,6 @@ void loop() {
 /////////////////////////////
 //      Custom Methods
 /////////////////////////////
-
-
 
 // Sends raw data command to device
 void sendCommand(int rawData[], int len) {
