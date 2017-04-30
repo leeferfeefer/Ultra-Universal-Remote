@@ -107,7 +107,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Down"/>
                                 <connections>
-                                    <action selector="downButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="KkL-KU-ePt"/>
+                                    <action selector="downButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="k01-ga-bU8"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zGY-Zl-8Ge">
@@ -126,8 +126,7 @@
                     </view>
                     <connections>
                         <outlet property="centerButton" destination="emn-Se-Czy" id="dh3-A8-Pet"/>
-                        <outlet property="downButton" destination="jRy-iA-Em6" id="LPf-Ei-wl8"/>
-                        <outlet property="downButtonPressed" destination="jRy-iA-Em6" id="WQ1-A1-GpC"/>
+                        <outlet property="downButton" destination="jRy-iA-Em6" id="H1r-hR-0Eu"/>
                         <outlet property="leftButton" destination="BB6-ms-0yu" id="7xn-Aa-TvE"/>
                         <outlet property="menuButton" destination="2eE-HC-x7M" id="0hD-Xs-7xO"/>
                         <outlet property="playPauseButton" destination="6j9-QP-bHt" id="6lY-Bf-S8C"/>

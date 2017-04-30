@@ -17,6 +17,7 @@
 
 
 #include <IRremote.h>
+#include <SoftwareSerial.h>
 
 
 const int LEDPin = 8;
@@ -530,7 +531,17 @@ const unsigned int apple_right[136] = {
 
 */
 
+
+int LED = 13;
+
+int RX = 10;
+int TX = 11;
+
+char data = 0;
+
+
 IRsend irsend;
+SoftwareSerial mySerial(RX, TX); // (10, 11) The RX and TX on aruidno and HC - 08 are switched
 
 void setup() {
 
@@ -539,6 +550,8 @@ void setup() {
 
 
   Serial.begin(9600);
+  mySerial.begin(9600);
+  
   Serial.print("Ultra Remote Initiated\n");
   Serial.print("Enter Command:");  // Format: Device Name / Command
 }
@@ -590,6 +603,19 @@ void loop() {
   */
 
 
+  if (mySerial.available()) {
+
+    Serial.print("Command received from iPhone");
+
+    data = mySerial.read();
+    Serial.println(data);
+
+    
+    digitalWrite(LED, HIGH);    
+    
+  } else {
+    digitalWrite(LED, LOW); 
+  }
 
 
 

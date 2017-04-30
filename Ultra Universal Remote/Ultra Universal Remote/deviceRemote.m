@@ -217,6 +217,8 @@
 
 
 -(void)sendCommand:(NSArray *)command{
+
+    NSLog(@"Sending command...");
     
     
 //    NSData *data = [command dataUsingEncoding:NSUTF8StringEncoding];
