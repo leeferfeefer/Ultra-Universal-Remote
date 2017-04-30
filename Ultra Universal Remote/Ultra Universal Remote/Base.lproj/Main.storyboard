@@ -110,6 +110,17 @@
                                     <action selector="downButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="KkL-KU-ePt"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zGY-Zl-8Ge">
+                                <rect key="frame" x="0.0" y="64" width="375" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Apple TV"/>
+                                    <segment title="Den TV"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentControlValueChanged:" destination="0ja-Ld-caY" eventType="valueChanged" id="nIh-ep-glP"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -121,12 +132,13 @@
                         <outlet property="menuButton" destination="2eE-HC-x7M" id="0hD-Xs-7xO"/>
                         <outlet property="playPauseButton" destination="6j9-QP-bHt" id="6lY-Bf-S8C"/>
                         <outlet property="rightButton" destination="Jcr-fQ-bBu" id="ffl-Wb-2kJ"/>
+                        <outlet property="segmentedControl" destination="zGY-Zl-8Ge" id="Phi-1a-Uvl"/>
                         <outlet property="upButton" destination="VLC-Ff-RvJ" id="42r-dW-pVl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3B-BA-PKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2546" y="-63"/>
+            <point key="canvasLocation" x="2544.8000000000002" y="-63.418290854572717"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uzm-z5-3cw">

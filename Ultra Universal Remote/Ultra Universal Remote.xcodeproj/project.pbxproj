@@ -17,6 +17,7 @@
 		17123B5E1EB41DF700C0C621 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17123B5D1EB41DF700C0C621 /* CoreBluetooth.framework */; };
 		17123B611EB425C400C0C621 /* devicesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17123B601EB425C400C0C621 /* devicesTableView.m */; };
 		17123B641EB4379200C0C621 /* deviceRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 17123B631EB4379200C0C621 /* deviceRemote.m */; };
+		17123B6C1EB5612900C0C621 /* codes.m in Sources */ = {isa = PBXBuildFile; fileRef = 17123B6B1EB5612900C0C621 /* codes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		17123B601EB425C400C0C621 /* devicesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = devicesTableView.m; sourceTree = "<group>"; };
 		17123B621EB4379200C0C621 /* deviceRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deviceRemote.h; sourceTree = "<group>"; };
 		17123B631EB4379200C0C621 /* deviceRemote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deviceRemote.m; sourceTree = "<group>"; };
+		17123B6A1EB5612900C0C621 /* codes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = codes.h; sourceTree = "<group>"; };
+		17123B6B1EB5612900C0C621 /* codes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = codes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				17123B5F1EB425C400C0C621 /* devicesTableView.h */,
 				17123B621EB4379200C0C621 /* deviceRemote.h */,
 				17123B631EB4379200C0C621 /* deviceRemote.m */,
+				17123B6A1EB5612900C0C621 /* codes.h */,
+				17123B6B1EB5612900C0C621 /* codes.m */,
 				17123B601EB425C400C0C621 /* devicesTableView.m */,
 				17123B351EB41D7E00C0C621 /* Assets.xcassets */,
 				17123B371EB41D7E00C0C621 /* LaunchScreen.storyboard */,
@@ -296,6 +301,7 @@
 				17123B2E1EB41D7E00C0C621 /* AppDelegate.m in Sources */,
 				17123B641EB4379200C0C621 /* deviceRemote.m in Sources */,
 				17123B2B1EB41D7E00C0C621 /* main.m in Sources */,
+				17123B6C1EB5612900C0C621 /* codes.m in Sources */,
 				17123B611EB425C400C0C621 /* devicesTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

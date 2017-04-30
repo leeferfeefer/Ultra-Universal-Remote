@@ -19,7 +19,6 @@
 #include <IRremote.h>
 
 
-const int buttonPin = 7;
 const int LEDPin = 8;
 
 char userInput;
@@ -465,7 +464,6 @@ IRsend irsend;
 void setup() {
 
 
-  pinMode(buttonPin, INPUT);
   pinMode(LEDPin, OUTPUT);
 
 
@@ -484,7 +482,6 @@ void loop() {
 
     switch (userInput) {
 
-     
       case 'A':
         sendCommand(apple_play_pause, sizeof(apple_play_pause) / sizeof(apple_play_pause[0]));
         break;

@@ -16,6 +16,8 @@
 @property (nonatomic, strong) CBPeripheral *device;
 
 
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+- (IBAction)segmentControlValueChanged:(UISegmentedControl *)sender;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *upButton;

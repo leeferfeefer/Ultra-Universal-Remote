@@ -15,12 +15,15 @@
 
 
 
+
 @interface deviceRemote ()
 
 
 @property (nonatomic, strong) CBService *dataService;
 @property (nonatomic, strong) CBCharacteristic *dataCharacteristic;
 
+@property BOOL appleTV;
+@property BOOL denTV;
 
 @end
 
@@ -35,6 +38,8 @@
     self.device.delegate = self;
 
     [self.device discoverServices:nil];
+    
+    self.appleTV = YES;
     
 }
 
@@ -119,15 +124,11 @@
 
 
 
-
-
+#pragma mark - Button Methods
 
 - (IBAction)upButtonPressed:(UIButton *)sender {
-    
-    
-    
+    [self upAction];
 }
-
 - (IBAction)centerButtonPressed:(UIButton *)sender {
 }
 
@@ -151,6 +152,24 @@
 
 
 
+#pragma mark - Button Method Helpers
+
+-(void)upAction{
+    if (self.appleTV) {
+        [self sendCommand:<#(NSString *)#>]
+    } else if (self.denTV) {
+        
+    }
+}
+
+
+
+
+
+
+
+
+
 
 -(void)sendCommand:(NSString *)command{
     
@@ -168,4 +187,8 @@
 
 
 
+- (IBAction)segmentControlValueChanged:(UISegmentedControl *)sender {
+    self.appleTV = !self.appleTV;
+    self.denTV = !self.denTV;
+}
 @end
