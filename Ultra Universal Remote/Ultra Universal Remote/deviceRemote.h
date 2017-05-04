@@ -16,6 +16,9 @@
 @property (nonatomic, strong) CBPeripheral *device;
 
 
+@property (nonatomic, strong) IBOutlet  UIActivityIndicatorView *commandSpinner;
+
+
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 - (IBAction)segmentControlValueChanged:(UISegmentedControl *)sender;
 
@@ -36,12 +39,6 @@
 - (IBAction)rightButtonPressed:(UIButton *)sender;
 - (IBAction)playPauseButtonPressed:(UIButton *)sender;
 - (IBAction)menuButtonPressed:(UIButton *)sender;
-
-
-
-
-@property (strong, nonatomic) IBOutlet UIButton *inputButton;
-- (IBAction)inputButtonPressed:(UIButton *)sender;
 
 
 

@@ -57,6 +57,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emn-Se-Czy">
+                                <rect key="frame" x="162" y="274" width="50" height="50"/>
+                                <state key="normal" title="Select">
+                                    <color key="titleColor" red="0.99473684210000002" green="0.98947368420000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="centerButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="oK2-2X-CZ9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLC-Ff-RvJ">
+                                <rect key="frame" x="162" y="216" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="QuX-BI-JtM"/>
+                                </constraints>
+                                <state key="normal" title="Up">
+                                    <color key="titleColor" red="0.99473684210000002" green="0.98947368420000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="upButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="Gtk-JA-p5j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcr-fQ-bBu">
+                                <rect key="frame" x="220" y="274" width="50" height="50"/>
+                                <state key="normal" title="Right">
+                                    <color key="titleColor" red="0.99473684210000002" green="0.98947368420000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="rightButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="U55-i5-Ueh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BB6-ms-0yu">
+                                <rect key="frame" x="104" y="274" width="50" height="50"/>
+                                <state key="normal" title="Left">
+                                    <color key="titleColor" red="0.99473684210000002" green="0.98947368420000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="leftButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="dQP-pU-hTR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eE-HC-x7M">
+                                <rect key="frame" x="162" y="490" width="50" height="50"/>
+                                <state key="normal" title="Menu">
+                                    <color key="titleColor" red="0.99473684210000002" green="0.98947368420000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="menuButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="jcw-fm-QJz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6j9-QP-bHt">
+                                <rect key="frame" x="162" y="432" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="P1n-yX-Jsw"/>
+                                </constraints>
+                                <state key="normal" title="Play Pause">
+                                    <color key="titleColor" red="0.99473684210000002" green="0.98947368420000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPauseButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="Ey7-c2-9QD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRy-iA-Em6">
+                                <rect key="frame" x="162" y="332" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="BBS-l2-yH1"/>
+                                </constraints>
+                                <state key="normal" title="Down">
+                                    <color key="titleColor" red="0.99473684210000002" green="0.98947368420000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="downButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="k01-ga-bU8"/>
+                                </connections>
+                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zGY-Zl-8Ge">
                                 <rect key="frame" x="0.0" y="64" width="375" height="29"/>
                                 <constraints>
@@ -70,66 +142,12 @@
                                     <action selector="segmentControlValueChanged:" destination="0ja-Ld-caY" eventType="valueChanged" id="nIh-ep-glP"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emn-Se-Czy">
-                                <rect key="frame" x="162" y="274" width="50" height="50"/>
-                                <state key="normal" title="Select"/>
-                                <connections>
-                                    <action selector="centerButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="oK2-2X-CZ9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLC-Ff-RvJ">
-                                <rect key="frame" x="162" y="216" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="QuX-BI-JtM"/>
-                                </constraints>
-                                <state key="normal" title="Up"/>
-                                <connections>
-                                    <action selector="upButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="Gtk-JA-p5j"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcr-fQ-bBu">
-                                <rect key="frame" x="220" y="274" width="50" height="50"/>
-                                <state key="normal" title="Right"/>
-                                <connections>
-                                    <action selector="rightButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="U55-i5-Ueh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BB6-ms-0yu">
-                                <rect key="frame" x="104" y="274" width="50" height="50"/>
-                                <state key="normal" title="Left"/>
-                                <connections>
-                                    <action selector="leftButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="dQP-pU-hTR"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eE-HC-x7M">
-                                <rect key="frame" x="162" y="490" width="50" height="50"/>
-                                <state key="normal" title="Menu"/>
-                                <connections>
-                                    <action selector="menuButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="jcw-fm-QJz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6j9-QP-bHt">
-                                <rect key="frame" x="162" y="432" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="P1n-yX-Jsw"/>
-                                </constraints>
-                                <state key="normal" title="Play Pause"/>
-                                <connections>
-                                    <action selector="playPauseButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="Ey7-c2-9QD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRy-iA-Em6">
-                                <rect key="frame" x="162" y="332" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="BBS-l2-yH1"/>
-                                </constraints>
-                                <state key="normal" title="Down"/>
-                                <connections>
-                                    <action selector="downButtonPressed:" destination="0ja-Ld-caY" eventType="touchUpInside" id="k01-ga-bU8"/>
-                                </connections>
-                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iTX-n4-fmK">
+                                <rect key="frame" x="169" y="387" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6j9-QP-bHt" firstAttribute="top" secondItem="jRy-iA-Em6" secondAttribute="bottom" constant="50" id="6tN-Y7-g0e"/>
                             <constraint firstAttribute="trailing" secondItem="zGY-Zl-8Ge" secondAttribute="trailing" id="8Wr-wW-TXg"/>
@@ -165,6 +183,7 @@
                     </view>
                     <connections>
                         <outlet property="centerButton" destination="emn-Se-Czy" id="dh3-A8-Pet"/>
+                        <outlet property="commandSpinner" destination="iTX-n4-fmK" id="Wso-eM-7B3"/>
                         <outlet property="downButton" destination="jRy-iA-Em6" id="H1r-hR-0Eu"/>
                         <outlet property="leftButton" destination="BB6-ms-0yu" id="7xn-Aa-TvE"/>
                         <outlet property="menuButton" destination="2eE-HC-x7M" id="0hD-Xs-7xO"/>

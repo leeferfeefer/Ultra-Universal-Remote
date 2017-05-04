@@ -121,6 +121,10 @@
 
     NSLog(@"Arduino: %@", returnValue);
 
+    if ([returnValue isEqualToString:@"Sent"]) {
+        [self stopLoading];
+    }
+
 }
 
 
@@ -160,24 +164,31 @@
 #pragma mark - Button Methods
 
 - (IBAction)upButtonPressed:(UIButton *)sender {
+    [self startLoading];
     [self upAction];
 }
 - (IBAction)centerButtonPressed:(UIButton *)sender {
+    [self startLoading];
     [self selectAction];
 }
 - (IBAction)leftButtonPressed:(UIButton *)sender {
+    [self startLoading];
     [self leftAction];
 }
 - (IBAction)downButtonPressed:(UIButton *)sender {
+    [self startLoading];
     [self downAction];
 }
 - (IBAction)rightButtonPressed:(UIButton *)sender {
+    [self startLoading];
     [self rightAction];
 }
 - (IBAction)playPauseButtonPressed:(UIButton *)sender {
+    [self startLoading];
     [self playPauseAction];
 }
 - (IBAction)menuButtonPressed:(UIButton *)sender {
+    [self startLoading];
     [self menuAction];
 }
 
@@ -323,6 +334,44 @@
 
 
     }
+}
+
+
+
+
+
+
+
+
+
+
+#pragma mark - Loading Methods
+
+-(void)startLoading{
+    [self.commandSpinner startAnimating];
+
+    [self.upButton setEnabled:NO];
+    [self.leftButton setEnabled:NO];
+    [self.rightButton setEnabled:NO];
+    [self.downButton setEnabled:NO];
+    [self.centerButton setEnabled:NO];
+    [self.playPauseButton setEnabled:NO];
+    [self.menuButton setEnabled:NO];
+
+    [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+}
+-(void)stopLoading{
+    [self.commandSpinner stopAnimating];
+
+    [self.upButton setEnabled:YES];
+    [self.leftButton setEnabled:YES];
+    [self.rightButton setEnabled:YES];
+    [self.downButton setEnabled:YES];
+    [self.centerButton setEnabled:YES];
+    [self.playPauseButton setEnabled:YES];
+    [self.menuButton setEnabled:YES];
+
+    [self.navigationController.navigationBar setUserInteractionEnabled:YES];
 }
 
 

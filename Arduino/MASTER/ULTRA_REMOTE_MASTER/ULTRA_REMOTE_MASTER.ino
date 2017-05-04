@@ -36,6 +36,8 @@ long tv_input = 0x20DFF40B;
 long tv_vol_up = 0x20DF40BF;
 long tv_vol_down = 0x20DFC03F;
 
+//Apple TV Codes
+
 // Data Variables
 
 char userInput;
@@ -266,6 +268,7 @@ void sendRawCommand(int rawData[], int len) {
   Serial.println("Sent");
   delay(100);
 
+  mySerial.write("Sent");
   lightOff();
 }
 void sendHEXCommand(long command) {
@@ -275,6 +278,7 @@ void sendHEXCommand(long command) {
     Serial.println("Sent");
     delay(100);
     
+    mySerial.write("Sent");
     lightOff();
 }
 
