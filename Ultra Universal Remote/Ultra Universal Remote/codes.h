@@ -26,6 +26,10 @@
 
 
 #pragma mark - Den TV Codes
+@property (nonatomic, strong) NSString *den_tv_input;
+@property (nonatomic, strong) NSString *den_tv_power;
+@property (nonatomic, strong) NSString *den_tv_vol_up;
+@property (nonatomic, strong) NSString *den_tv_vol_down;
 
 
 

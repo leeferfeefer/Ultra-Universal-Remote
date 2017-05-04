@@ -183,9 +183,6 @@
 
 
 
-
-
-
 #pragma mark - Button Method Helpers
 
 -(void)upAction{
@@ -206,28 +203,28 @@
     if (self.appleTV) {
         [self sendCommand:self.codeManager.apple_left];
     } else if (self.denTV) {
-
+        [self sendCommand:@[self.codeManager.den_tv_vol_down]];
     }
 }
 -(void)rightAction{
     if (self.appleTV) {
         [self sendCommand:self.codeManager.apple_right];
     } else if (self.denTV) {
-
+        [self sendCommand:@[self.codeManager.den_tv_vol_up]];
     }
 }
 -(void)selectAction{
     if (self.appleTV) {
         [self sendCommand:self.codeManager.apple_select];
     } else if (self.denTV) {
-
+        [self sendCommand:@[self.codeManager.den_tv_power]];
     }
 }
 -(void)menuAction{
     if (self.appleTV) {
         [self sendCommand:self.codeManager.apple_menu];
     } else if (self.denTV) {
-
+        [self sendCommand:@[self.codeManager.den_tv_input]];
     }
 }
 -(void)playPauseAction{
@@ -241,83 +238,50 @@
 
 
 
+
 -(void)sendCommand:(NSArray *)command{
 
     NSLog(@"Sending command...");
 
+    NSString *commandString;
 
-    NSString *commandString = [self convertCommandToString:command];
+    if (self.appleTV) {
+        [self.device writeValue:[@"AppleTV $" dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
+
+        commandString = [self convertAppleTVCommandToString:command];
+
+    } else if (self.denTV) {
+        [self.device writeValue:[@"DenTV $" dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
+
+        commandString = command[0];
+    }
+
     NSLog(@"the command string is %@", commandString);
 
     NSUInteger bytes = [commandString lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"the total number of bytes is %lu", (unsigned long)bytes);
 
-
-
-    if (self.appleTV) {
-        [self.device writeValue:[@"AppleTV $" dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
-
-    } else if (self.denTV) {
-        [self.device writeValue:[@"DenTV $" dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
-
-    }
-
-
-
-
     if (bytes > MAX_BYTES) {
         [self chunkData:commandString withTotalBytes:bytes];
     } else {
+        [self.device writeValue:[@"1 /" dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
         [self.device writeValue:[commandString dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
+        [self.device writeValue:[@"*" dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
     }
-
-
-
-
-/*
-
-    for (NSNumber *num in command) {
-//
-//        NSData *data = [NSData dataWithBytes:&numData length:sizeof(numData)];
-
-        NSString *numString = [NSString stringWithFormat:@"%ld ", (long)[num integerValue]];
-//
-        NSLog(@"the numstring is %@", numString);
-
-        [self.device writeValue:[numString dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
-
-//        for (int i = 0; i < [numString length]; i++) {
-//
-//            NSString *letter = [numString substringWithRange:NSMakeRange(i, 1)];
-//
-//
-//            NSLog(@"the data is %@", letter);
-//
-//
-//        }
-
-
-//        [self.device setNotifyValue:YES forCharacteristic:self.dataCharacteristic];
-
-
-    }
- 
- */
-
-
-//    [self.device writeValue:[@"*" dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
-
-
-
 }
 
--(NSString *)convertCommandToString:(NSArray *)command {
+
+-(NSString *)convertAppleTVCommandToString:(NSArray *)command {
     NSString *commandString = @"";
+
     for (int i = 0; i < [command count]/2; i++) {
         commandString = [NSString stringWithFormat:@"%@ %ld", commandString, (long)[command[i] integerValue]];
     }
-    // Take the first 2 spaces out
-    commandString = [commandString substringWithRange:NSMakeRange(2, [commandString length]-2)];
+
+    // Take the first space out
+    commandString = [commandString substringWithRange:NSMakeRange(1, [commandString length]-1)];
+
+
     return commandString;
 }
 
@@ -326,20 +290,20 @@
 
 -(void)chunkData:(NSString *)commandString withTotalBytes:(NSUInteger )numBytes {
 
-    int iterations = (int)numBytes / MAX_BYTES;
+    int chunks = (int)numBytes / MAX_BYTES;
     int remainder = numBytes % MAX_BYTES;
 
     if (remainder > 0) {
-        iterations++;
+        chunks++;
     }
 
-    // Send number of iterations
-    [self.device writeValue:[[NSString stringWithFormat:@"%d /", iterations] dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
+    // Send number of chunks
+    [self.device writeValue:[[NSString stringWithFormat:@"%d /", chunks] dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
 
     NSString *chunk = @"";
 
     // chunk data
-    for (int i = 0; i < iterations; i++) {
+    for (int i = 0; i < chunks; i++) {
 
         int index = i*MAX_BYTES;
 
@@ -367,7 +331,26 @@
 
 
 - (IBAction)segmentControlValueChanged:(UISegmentedControl *)sender {
+
+    NSLog(@"Device changed");
+
     self.appleTV = !self.appleTV;
     self.denTV = !self.denTV;
+
+
+    if (self.appleTV) {
+        [self.playPauseButton setHidden:NO];
+        [self.menuButton setTitle:@"Menu" forState:UIControlStateNormal];
+        [self.centerButton setTitle:@"Select" forState:UIControlStateNormal];
+        [self.leftButton setTitle:@"Left" forState:UIControlStateNormal];
+        [self.rightButton setTitle:@"Right" forState:UIControlStateNormal];
+    } else if (self.denTV) {
+        [self.playPauseButton setHidden:YES];
+        [self.menuButton setTitle:@"Input" forState:UIControlStateNormal];
+        [self.centerButton setTitle:@"Power" forState:UIControlStateNormal];
+        [self.leftButton setTitle:@"-" forState:UIControlStateNormal];
+        [self.rightButton setTitle:@"+" forState:UIControlStateNormal];
+    }
 }
+
 @end

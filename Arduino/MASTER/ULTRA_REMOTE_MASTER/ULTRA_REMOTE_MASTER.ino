@@ -30,6 +30,12 @@ SoftwareSerial mySerial(RX, TX); // (10, 11) The RX and TX on aruidno and HC - 0
 
 
 
+//TV Codes
+long tv_pow = 0x20DF10EF;
+long tv_input = 0x20DFF40B;
+long tv_vol_up = 0x20DF40BF;
+long tv_vol_down = 0x20DFC03F;
+
 // Data Variables
 
 char userInput;
@@ -79,39 +85,32 @@ void loop() {
     }
   }
 
-
-
-
-  
+  // Received data available
   if (mySerial.available()) {
 
-    digitalWrite(LED, HIGH);
+    lightOn();
 
     char recvChar = mySerial.read();
     recvDataString.concat(recvChar);
 
+    // Device
     if (recvChar == '$') {
       
       // Remove delimiter
       recvDataString.remove(recvDataString.length()-2);
       
       if (recvDataString == "AppleTV") {
+        device = "AppleTV";
         commandArrayLen = 136;
       } else if (recvDataString == "DenTV") {
-        
+        device = "DenTV";
+        commandArrayLen = 72;
       }
       
       // Clear for next data
       recvDataString = "";
-
-      if (debugMode) {
-        Serial.println();
-        Serial.println("Command length: ");
-        Serial.print(commandArrayLen);
-      }
     }
 
-    
 
     if (recvChar == '/') {
 
@@ -122,20 +121,20 @@ void loop() {
       
       // Clear for next data
       recvDataString = "";
-
+  
       numChunks = numChunksString.toInt();
-
+  
       if (debugMode) {
         Serial.println();
         Serial.println("Number of expected chunks: ");
         Serial.print(numChunks);
       }
+      
     }
+    
 
     
     if (recvChar == '*') {
-
-      lightOn();
       
       numChunksCount++;
 
@@ -171,9 +170,6 @@ void loop() {
           Serial.print(recvTotalDataString);
         }
 
-        
-        recvTotalDataString += ' ';
-
         // Send total data ACK to iPhone
         mySerial.write("Received Data");
         
@@ -182,43 +178,71 @@ void loop() {
           Serial.println("Sending total data ACK to iPhone...");
         }
 
-        
-        int command[commandArrayLen];
+        if (device == "AppleTV") {
+
+          recvTotalDataString += ' ';
+
+          int command[commandArrayLen];
   
-        String num = "";
-        int count = 0;
-        for (int i = 0; i < recvTotalDataString.length(); i++) {
+          String num = "";
+          int count = 0;
+          for (int i = 0; i < recvTotalDataString.length(); i++) {
+            
+            if (recvTotalDataString.charAt(i) == ' ') {            
+              command[count] = num.toInt();
+              count++;
+              num = "";
+            } else {
+              char letter = recvTotalDataString.charAt(i);
+              num += letter;
+            }
+          }
+            
+          // send parsed command
+          if (device == "AppleTV") {
+            for (int i = 0; i < commandArrayLen/2; i++) {
+              command[commandArrayLen/2 + i] = command[i];
+            }
+          }
+      
+          if (debugMode) {
+            for (int i = 0; i < commandArrayLen; i++) {
+              Serial.println();
+              Serial.print("Sending: ");
+              Serial.print(command[i]);
+            }
+          }
+  
+          sendRawCommand(command, sizeof(command) / sizeof(command[0]));
           
-          if (recvTotalDataString.charAt(i) == ' ') {            
-            command[count] = num.toInt();
-            count++;
-            num = "";
-          } else {
-            char letter = recvTotalDataString.charAt(i);
-            num += letter;
+        } else if (device == "DenTV") {
+
+          Serial.print("Received: ");
+          Serial.print(recvTotalDataString);
+
+
+          switch(recvTotalDataString.charAt(0)) {
+            case 'i':
+              sendHEXCommand(tv_input);
+              break;
+            case 'u':
+              sendHEXCommand(tv_vol_up);
+              break;
+            case 'd':
+              sendHEXCommand(tv_vol_down);
+              break;
+            case 'p':
+              sendHEXCommand(tv_pow);
+              break;
+            default:          
+              break;
+              
           }
         }
-
-        // Zero out for next time
-        recvTotalDataString = "";
-        numChunksCount = 0;
-          
-        // send parsed command
-
-        for (int i = 0; i < commandArrayLen/2; i++) {
-          command[commandArrayLen/2 + i] = command[i];
-        }
-
-        if (debugMode) {
-          for (int i = 0; i < commandArrayLen; i++) {
-            Serial.println();
-            Serial.print("Sending: ");
-            Serial.print(command[i]);
-          }
-        }
-
-
-        sendCommand(command, sizeof(command) / sizeof(command[0]));
+        
+          // Zero out for next time
+          recvTotalDataString = "";
+          numChunksCount = 0;
         
       }
     }
@@ -235,7 +259,7 @@ void loop() {
 /////////////////////////////
 
 // Sends raw data command to device
-void sendCommand(int rawData[], int len) {
+void sendRawCommand(int rawData[], int len) {
   Serial.println();
   Serial.println("Sending");
   irsend.sendRaw(rawData, len, 38); // 38kHz
@@ -244,7 +268,15 @@ void sendCommand(int rawData[], int len) {
 
   lightOff();
 }
-
+void sendHEXCommand(long command) {
+    Serial.println();
+    Serial.println("Sending");
+    irsend.sendNEC(command, 32); // 38kHz
+    Serial.println("Sent");
+    delay(100);
+    
+    lightOff();
+}
 
 
 void lightOn() {

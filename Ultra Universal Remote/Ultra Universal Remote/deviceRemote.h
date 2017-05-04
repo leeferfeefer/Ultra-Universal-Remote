@@ -40,6 +40,8 @@
 
 
 
+@property (strong, nonatomic) IBOutlet UIButton *inputButton;
+- (IBAction)inputButtonPressed:(UIButton *)sender;
 
 
 

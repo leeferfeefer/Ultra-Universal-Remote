@@ -31,7 +31,10 @@
 
 
 
-
+        self.den_tv_input = @"i";
+        self.den_tv_power = @"p";
+        self.den_tv_vol_up = @"u";
+        self.den_tv_vol_down = @"d";
 
     }
     return self;
