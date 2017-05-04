@@ -105,7 +105,8 @@
         self.selectedDevice = selectedDevice;
         
         [self.centralManager connectPeripheral:self.selectedDevice options:nil];
-        
+
+
         
     } else {
         
@@ -217,7 +218,9 @@
     }
     
     [self stopScanning];
-    
+
+
+
     [self performSegueWithIdentifier:@"showDeviceUI" sender:nil];
 }
 
