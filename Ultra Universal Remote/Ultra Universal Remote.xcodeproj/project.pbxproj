@@ -538,6 +538,7 @@
 				17123B551EB41D7E00C0C621 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17123B561EB41D7E00C0C621 /* Build configuration list for PBXNativeTarget "Ultra Universal RemoteTests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +547,7 @@
 				17123B581EB41D7E00C0C621 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17123B591EB41D7E00C0C621 /* Build configuration list for PBXNativeTarget "Ultra Universal RemoteUITests" */ = {
 			isa = XCConfigurationList;
@@ -554,6 +556,7 @@
 				17123B5B1EB41D7E00C0C621 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

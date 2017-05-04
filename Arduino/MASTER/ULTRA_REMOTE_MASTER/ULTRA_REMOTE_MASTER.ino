@@ -537,7 +537,7 @@ int LED = 13;
 int RX = 10;
 int TX = 11;
 
-char data = 0;
+int data = 0;
 
 
 IRsend irsend;
@@ -553,7 +553,6 @@ void setup() {
   mySerial.begin(9600);
   
   Serial.print("Ultra Remote Initiated\n");
-  Serial.print("Enter Command:");  // Format: Device Name / Command
 }
 
 void loop() {
@@ -614,7 +613,7 @@ void loop() {
     digitalWrite(LED, HIGH);    
     
   } else {
-    digitalWrite(LED, LOW); 
+    //digitalWrite(LED, LOW); 
   }
 
 

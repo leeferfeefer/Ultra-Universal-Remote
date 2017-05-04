@@ -300,30 +300,6 @@
 
 
 
-#pragma mark - Writing and Receiving methods
-
-
-//when the CBCharacteristicWriteWithResponse type is used.
--(void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
-    
-    if (error) {
-        NSLog(@"error writing to peripheral");
-        NSLog(@"the error is %@", error);
-        return;
-    }
-}
-
--(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    
-    if (error) {
-        NSLog(@"error");
-        return;
-    }
-    
-    
-    NSLog(@"received");
-    NSLog(@"updated value from arduino");
-}
 
 
 

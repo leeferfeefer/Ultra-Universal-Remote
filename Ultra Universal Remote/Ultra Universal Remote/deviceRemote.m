@@ -97,6 +97,30 @@
 }
 
 
+#pragma mark - Writing and Receiving methods
+
+
+//when the CBCharacteristicWriteWithResponse type is used.
+-(void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
+
+    if (error) {
+        NSLog(@"error writing to peripheral");
+        NSLog(@"the error is %@", error);
+        return;
+    }
+}
+
+-(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+
+    if (error) {
+        NSLog(@"error");
+        return;
+    }
+
+
+    NSLog(@"received");
+    NSLog(@"updated value from arduino");
+}
 
 
 
@@ -221,13 +245,28 @@
     NSLog(@"Sending command...");
     
     
-//    NSData *data = [command dataUsingEncoding:NSUTF8StringEncoding];
 
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:command];
+//    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:command];
+
+    for (NSNumber *num in command) {
+
+        NSLog(@"number is %@", num);
+
+        NSInteger numData = [num integerValue];
+//
+//        NSData *data = [NSData dataWithBytes:&numData length:sizeof(numData)];
+
+        NSString *numString = [NSString stringWithFormat:@"%ld", (long)numData];
+
+//        NSLog(@"the numstring is %@", numString);
+
+        NSData *data = [numString dataUsingEncoding:NSUTF8StringEncoding];
+
+        [self.device writeValue:data forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
+
+    }
 
 
-    [self.device writeValue:data forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
-    
 }
 
 
