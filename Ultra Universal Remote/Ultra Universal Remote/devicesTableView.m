@@ -15,6 +15,8 @@
 @interface devicesTableView ()
 
 @property (strong, nonatomic) NSMutableArray *deviceList;
+@property (strong, nonatomic) NSMutableArray *deviceNames;
+
 
 @property (strong, nonatomic) CBCentralManager *centralManager;
 
@@ -29,7 +31,8 @@
     [super viewDidLoad];
     
     self.deviceList = [NSMutableArray new];
-    
+    self.deviceNames = [NSMutableArray new];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -38,7 +41,16 @@
     
     CBCentralManager *manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:nil];
     self.centralManager = manager;
-    
+
+
+
+
+    if ([WCSession isSupported]) {
+        WCSession *session = [WCSession defaultSession];
+        session.delegate = self;
+        [session activateSession];
+        NSLog(@"WCSession is supported");
+    }
 }
 //-(void)viewDidDisappear:(BOOL)animated {
 //    [self viewDidDisappear:animated];
@@ -179,6 +191,18 @@
     [self.deviceList addObject:peripheral];
     
     [self.deviceTableView reloadData];
+
+    [self.deviceNames addObject:peripheral.name];
+
+    [self sendToWatch];
+
+    // Send data to watch
+//    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.UUR.sharedData"];
+//    [defaults setValue:self.deviceList forKey:@"deviceList"];
+//    [defaults synchronize];
+
+
+
     
     /*
     
@@ -239,6 +263,8 @@
     
     // Start scanning for new devices
     [self startScanning];
+
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 
@@ -324,6 +350,71 @@
 }
 
 
+
+
+
+
+
+
+
+-(void)sendToWatch {
+
+    if ([[WCSession defaultSession] isReachable]) {
+        //Here is where you will send you data
+
+        NSLog(@"reachable");
+
+        [[WCSession defaultSession] sendMessage:[NSDictionary dictionaryWithObject:self.deviceNames forKey:@"deviceNames"]
+                                   replyHandler:^(NSDictionary *reply) {
+                                       //handle reply from iPhone app here
+
+
+                                   }
+                                   errorHandler:^(NSError *error) {
+                                       //catch any errors here
+                                   }];
+
+
+    } else {
+        NSLog(@"not reachable");
+        
+    }
+
+}
+
+
+
+
+#pragma mark - Session Delegate Methods
+
+-(void)session:(WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(NSError *)error {
+
+    NSLog(@"session activated");
+
+}
+-(void)sessionDidBecomeInactive:(WCSession *)session {
+    NSLog(@"became inactive");
+}
+-(void)sessionDidDeactivate:(WCSession *)session {
+    NSLog(@"session deactivated");
+}
+-(void)sessionWatchStateDidChange:(WCSession *)session {
+    NSLog(@"state changed");
+}
+
+-(void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message {
+    NSLog(@"message received");
+}
+
+-(void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message replyHandler:(void (^)(NSDictionary<NSString *,id> * _Nonnull))replyHandler {
+    NSLog(@"message received");
+
+
+    NSLog(@"the message is %@", message);
+
+    
+    
+}
 
 /*
 // Override to support editing the table view.

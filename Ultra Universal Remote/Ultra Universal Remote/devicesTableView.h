@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import <WatchConnectivity/WatchConnectivity.h>
 
 #import "deviceRemote.h"
 
-@interface devicesTableView : UITableViewController <CBCentralManagerDelegate>
+@interface devicesTableView : UITableViewController <CBCentralManagerDelegate, WCSessionDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITableView *deviceTableView;

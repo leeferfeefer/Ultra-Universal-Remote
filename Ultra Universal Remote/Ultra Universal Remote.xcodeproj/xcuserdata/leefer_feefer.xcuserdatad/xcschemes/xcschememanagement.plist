@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Ultra Universal Remote Watch (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Ultra Universal Remote Watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Ultra Universal Remote.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>17123B491EB41D7E00C0C621</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>172C92B31EBBF32500B948DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

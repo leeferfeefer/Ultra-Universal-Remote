@@ -18,6 +18,17 @@
 		17123B611EB425C400C0C621 /* devicesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17123B601EB425C400C0C621 /* devicesTableView.m */; };
 		17123B641EB4379200C0C621 /* deviceRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 17123B631EB4379200C0C621 /* deviceRemote.m */; };
 		17123B6C1EB5612900C0C621 /* codes.m in Sources */ = {isa = PBXBuildFile; fileRef = 17123B6B1EB5612900C0C621 /* codes.m */; };
+		172C92BA1EBBF32500B948DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 172C92B91EBBF32500B948DB /* Assets.xcassets */; };
+		172C92C11EBBF32500B948DB /* Ultra Universal Remote Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 172C92C01EBBF32500B948DB /* Ultra Universal Remote Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		172C92CC1EBBF32500B948DB /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 172C92CB1EBBF32500B948DB /* ExtensionDelegate.m */; };
+		172C92CF1EBBF32500B948DB /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172C92CE1EBBF32500B948DB /* NotificationController.m */; };
+		172C92D11EBBF32500B948DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 172C92D01EBBF32500B948DB /* Assets.xcassets */; };
+		172C92D51EBBF32500B948DB /* Ultra Universal Remote Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 172C92B41EBBF32500B948DB /* Ultra Universal Remote Watch.app */; };
+		172C92E01EBBF46000B948DB /* devicesList.m in Sources */ = {isa = PBXBuildFile; fileRef = 172C92DF1EBBF46000B948DB /* devicesList.m */; };
+		172C92E31EBC15D000B948DB /* devicesList.m in Sources */ = {isa = PBXBuildFile; fileRef = 172C92DF1EBBF46000B948DB /* devicesList.m */; };
+		172C92EA1EBC191400B948DB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172C92B61EBBF32500B948DB /* Interface.storyboard */; };
+		179413851EBE1F3B00BE6F3B /* devicesRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179413841EBE1F3B00BE6F3B /* devicesRowController.m */; };
+		17F8AB461EBC27DA005DFFEF /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172C92B61EBBF32500B948DB /* Interface.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +46,46 @@
 			remoteGlobalIDString = 17123B251EB41D7E00C0C621;
 			remoteInfo = "Ultra Universal Remote";
 		};
+		172C92C21EBBF32500B948DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17123B1E1EB41D7E00C0C621 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 172C92BF1EBBF32500B948DB;
+			remoteInfo = "Ultra Universal Remote Watch Extension";
+		};
+		172C92D31EBBF32500B948DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17123B1E1EB41D7E00C0C621 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 172C92B31EBBF32500B948DB;
+			remoteInfo = "Ultra Universal Remote Watch";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		172C92DB1EBBF32500B948DB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				172C92C11EBBF32500B948DB /* Ultra Universal Remote Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		172C92DD1EBBF32500B948DB /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				172C92D51EBBF32500B948DB /* Ultra Universal Remote Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		17123B261EB41D7E00C0C621 /* Ultra Universal Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ultra Universal Remote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +109,24 @@
 		17123B631EB4379200C0C621 /* deviceRemote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deviceRemote.m; sourceTree = "<group>"; };
 		17123B6A1EB5612900C0C621 /* codes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = codes.h; sourceTree = "<group>"; };
 		17123B6B1EB5612900C0C621 /* codes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = codes.m; sourceTree = "<group>"; };
+		172C92B41EBBF32500B948DB /* Ultra Universal Remote Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ultra Universal Remote Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		172C92B71EBBF32500B948DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		172C92B91EBBF32500B948DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		172C92BB1EBBF32500B948DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		172C92C01EBBF32500B948DB /* Ultra Universal Remote Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Ultra Universal Remote Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		172C92C61EBBF32500B948DB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		172C92CA1EBBF32500B948DB /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
+		172C92CB1EBBF32500B948DB /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
+		172C92CD1EBBF32500B948DB /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		172C92CE1EBBF32500B948DB /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		172C92D01EBBF32500B948DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		172C92D21EBBF32500B948DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		172C92DE1EBBF46000B948DB /* devicesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = devicesList.h; path = "../Ultra Universal Remote Watch/devicesList.h"; sourceTree = "<group>"; };
+		172C92DF1EBBF46000B948DB /* devicesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = devicesList.m; path = "../Ultra Universal Remote Watch/devicesList.m"; sourceTree = "<group>"; };
+		179413831EBE1F3B00BE6F3B /* devicesRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = devicesRowController.h; sourceTree = "<group>"; };
+		179413841EBE1F3B00BE6F3B /* devicesRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = devicesRowController.m; sourceTree = "<group>"; };
+		17DFB61A1EBE2E2A00C5F7D0 /* Ultra Universal Remote Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Ultra Universal Remote Watch Extension.entitlements"; sourceTree = "<group>"; };
+		17F8AB441EBC214B005DFFEF /* Ultra Universal Remote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Ultra Universal Remote.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +152,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		172C92BD1EBBF32500B948DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -93,6 +168,8 @@
 				17123B281EB41D7E00C0C621 /* Ultra Universal Remote */,
 				17123B421EB41D7E00C0C621 /* Ultra Universal RemoteTests */,
 				17123B4D1EB41D7E00C0C621 /* Ultra Universal RemoteUITests */,
+				172C92B51EBBF32500B948DB /* Ultra Universal Remote Watch */,
+				172C92C41EBBF32500B948DB /* Ultra Universal Remote Watch Extension */,
 				17123B271EB41D7E00C0C621 /* Products */,
 				17123B5C1EB41DF700C0C621 /* Frameworks */,
 			);
@@ -104,6 +181,8 @@
 				17123B261EB41D7E00C0C621 /* Ultra Universal Remote.app */,
 				17123B3F1EB41D7E00C0C621 /* Ultra Universal RemoteTests.xctest */,
 				17123B4A1EB41D7E00C0C621 /* Ultra Universal RemoteUITests.xctest */,
+				172C92B41EBBF32500B948DB /* Ultra Universal Remote Watch.app */,
+				172C92C01EBBF32500B948DB /* Ultra Universal Remote Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,15 +190,16 @@
 		17123B281EB41D7E00C0C621 /* Ultra Universal Remote */ = {
 			isa = PBXGroup;
 			children = (
+				17F8AB441EBC214B005DFFEF /* Ultra Universal Remote.entitlements */,
 				17123B2C1EB41D7E00C0C621 /* AppDelegate.h */,
 				17123B2D1EB41D7E00C0C621 /* AppDelegate.m */,
 				17123B321EB41D7E00C0C621 /* Main.storyboard */,
 				17123B5F1EB425C400C0C621 /* devicesTableView.h */,
+				17123B601EB425C400C0C621 /* devicesTableView.m */,
 				17123B621EB4379200C0C621 /* deviceRemote.h */,
 				17123B631EB4379200C0C621 /* deviceRemote.m */,
 				17123B6A1EB5612900C0C621 /* codes.h */,
 				17123B6B1EB5612900C0C621 /* codes.m */,
-				17123B601EB425C400C0C621 /* devicesTableView.m */,
 				17123B351EB41D7E00C0C621 /* Assets.xcassets */,
 				17123B371EB41D7E00C0C621 /* LaunchScreen.storyboard */,
 				17123B3A1EB41D7E00C0C621 /* Info.plist */,
@@ -162,6 +242,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		172C92B51EBBF32500B948DB /* Ultra Universal Remote Watch */ = {
+			isa = PBXGroup;
+			children = (
+				172C92B61EBBF32500B948DB /* Interface.storyboard */,
+				172C92B91EBBF32500B948DB /* Assets.xcassets */,
+				172C92BB1EBBF32500B948DB /* Info.plist */,
+			);
+			path = "Ultra Universal Remote Watch";
+			sourceTree = "<group>";
+		};
+		172C92C41EBBF32500B948DB /* Ultra Universal Remote Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				17DFB61A1EBE2E2A00C5F7D0 /* Ultra Universal Remote Watch Extension.entitlements */,
+				179413831EBE1F3B00BE6F3B /* devicesRowController.h */,
+				179413841EBE1F3B00BE6F3B /* devicesRowController.m */,
+				172C92DE1EBBF46000B948DB /* devicesList.h */,
+				172C92DF1EBBF46000B948DB /* devicesList.m */,
+				172C92CA1EBBF32500B948DB /* ExtensionDelegate.h */,
+				172C92CB1EBBF32500B948DB /* ExtensionDelegate.m */,
+				172C92CD1EBBF32500B948DB /* NotificationController.h */,
+				172C92CE1EBBF32500B948DB /* NotificationController.m */,
+				172C92D01EBBF32500B948DB /* Assets.xcassets */,
+				172C92D21EBBF32500B948DB /* Info.plist */,
+				172C92C51EBBF32500B948DB /* Supporting Files */,
+			);
+			path = "Ultra Universal Remote Watch Extension";
+			sourceTree = "<group>";
+		};
+		172C92C51EBBF32500B948DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				172C92C61EBBF32500B948DB /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,10 +289,12 @@
 				17123B221EB41D7E00C0C621 /* Sources */,
 				17123B231EB41D7E00C0C621 /* Frameworks */,
 				17123B241EB41D7E00C0C621 /* Resources */,
+				172C92DD1EBBF32500B948DB /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				172C92D41EBBF32500B948DB /* PBXTargetDependency */,
 			);
 			name = "Ultra Universal Remote";
 			productName = "Ultra Universal Remote";
@@ -218,6 +337,40 @@
 			productReference = 17123B4A1EB41D7E00C0C621 /* Ultra Universal RemoteUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		172C92B31EBBF32500B948DB /* Ultra Universal Remote Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 172C92DC1EBBF32500B948DB /* Build configuration list for PBXNativeTarget "Ultra Universal Remote Watch" */;
+			buildPhases = (
+				172C92B21EBBF32500B948DB /* Resources */,
+				172C92DB1EBBF32500B948DB /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				172C92C31EBBF32500B948DB /* PBXTargetDependency */,
+			);
+			name = "Ultra Universal Remote Watch";
+			productName = "Ultra Universal Remote Watch";
+			productReference = 172C92B41EBBF32500B948DB /* Ultra Universal Remote Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		172C92BF1EBBF32500B948DB /* Ultra Universal Remote Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 172C92DA1EBBF32500B948DB /* Build configuration list for PBXNativeTarget "Ultra Universal Remote Watch Extension" */;
+			buildPhases = (
+				172C92BC1EBBF32500B948DB /* Sources */,
+				172C92BD1EBBF32500B948DB /* Frameworks */,
+				172C92BE1EBBF32500B948DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Ultra Universal Remote Watch Extension";
+			productName = "Ultra Universal Remote Watch Extension";
+			productReference = 172C92C01EBBF32500B948DB /* Ultra Universal Remote Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -231,6 +384,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = RN7R2KXWS4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					17123B3E1EB41D7E00C0C621 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -243,6 +401,21 @@
 						DevelopmentTeam = RN7R2KXWS4;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 17123B251EB41D7E00C0C621;
+					};
+					172C92B31EBBF32500B948DB = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = RN7R2KXWS4;
+						ProvisioningStyle = Automatic;
+					};
+					172C92BF1EBBF32500B948DB = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = RN7R2KXWS4;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -262,6 +435,8 @@
 				17123B251EB41D7E00C0C621 /* Ultra Universal Remote */,
 				17123B3E1EB41D7E00C0C621 /* Ultra Universal RemoteTests */,
 				17123B491EB41D7E00C0C621 /* Ultra Universal RemoteUITests */,
+				172C92B31EBBF32500B948DB /* Ultra Universal Remote Watch */,
+				172C92BF1EBBF32500B948DB /* Ultra Universal Remote Watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -291,6 +466,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		172C92B21EBBF32500B948DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17F8AB461EBC27DA005DFFEF /* Interface.storyboard in Resources */,
+				172C92BA1EBBF32500B948DB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		172C92BE1EBBF32500B948DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				172C92EA1EBC191400B948DB /* Interface.storyboard in Resources */,
+				172C92D11EBBF32500B948DB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -301,6 +494,7 @@
 				17123B2E1EB41D7E00C0C621 /* AppDelegate.m in Sources */,
 				17123B641EB4379200C0C621 /* deviceRemote.m in Sources */,
 				17123B2B1EB41D7E00C0C621 /* main.m in Sources */,
+				172C92E01EBBF46000B948DB /* devicesList.m in Sources */,
 				17123B6C1EB5612900C0C621 /* codes.m in Sources */,
 				17123B611EB425C400C0C621 /* devicesTableView.m in Sources */,
 			);
@@ -322,6 +516,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		172C92BC1EBBF32500B948DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				179413851EBE1F3B00BE6F3B /* devicesRowController.m in Sources */,
+				172C92E31EBC15D000B948DB /* devicesList.m in Sources */,
+				172C92CC1EBBF32500B948DB /* ExtensionDelegate.m in Sources */,
+				172C92CF1EBBF32500B948DB /* NotificationController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -334,6 +539,16 @@
 			isa = PBXTargetDependency;
 			target = 17123B251EB41D7E00C0C621 /* Ultra Universal Remote */;
 			targetProxy = 17123B4B1EB41D7E00C0C621 /* PBXContainerItemProxy */;
+		};
+		172C92C31EBBF32500B948DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 172C92BF1EBBF32500B948DB /* Ultra Universal Remote Watch Extension */;
+			targetProxy = 172C92C21EBBF32500B948DB /* PBXContainerItemProxy */;
+		};
+		172C92D41EBBF32500B948DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 172C92B31EBBF32500B948DB /* Ultra Universal Remote Watch */;
+			targetProxy = 172C92D31EBBF32500B948DB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -352,6 +567,14 @@
 				17123B381EB41D7E00C0C621 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		172C92B61EBBF32500B948DB /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				172C92B71EBBF32500B948DB /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -449,10 +672,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ultra Universal Remote/Ultra Universal Remote.entitlements";
 				DEVELOPMENT_TEAM = RN7R2KXWS4;
 				INFOPLIST_FILE = "Ultra Universal Remote/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.Ultra-Universal-Remote";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.UUR.Ultra-Universal-Remote";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -461,10 +685,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ultra Universal Remote/Ultra Universal Remote.entitlements";
 				DEVELOPMENT_TEAM = RN7R2KXWS4;
 				INFOPLIST_FILE = "Ultra Universal Remote/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.Ultra-Universal-Remote";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.UUR.Ultra-Universal-Remote";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -519,6 +744,72 @@
 			};
 			name = Release;
 		};
+		172C92D61EBBF32500B948DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RN7R2KXWS4;
+				IBSC_MODULE = Ultra_Universal_Remote_Watch_Extension;
+				INFOPLIST_FILE = "Ultra Universal Remote Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.UUR.Ultra-Universal-Remote.watchkit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		172C92D71EBBF32500B948DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RN7R2KXWS4;
+				IBSC_MODULE = Ultra_Universal_Remote_Watch_Extension;
+				INFOPLIST_FILE = "Ultra Universal Remote Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.UUR.Ultra-Universal-Remote.watchkit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		172C92D81EBBF32500B948DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Ultra Universal Remote Watch Extension/Ultra Universal Remote Watch Extension.entitlements";
+				DEVELOPMENT_TEAM = RN7R2KXWS4;
+				INFOPLIST_FILE = "Ultra Universal Remote Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.UUR.Ultra-Universal-Remote.watchkit.extension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		172C92D91EBBF32500B948DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Ultra Universal Remote Watch Extension/Ultra Universal Remote Watch Extension.entitlements";
+				DEVELOPMENT_TEAM = RN7R2KXWS4;
+				INFOPLIST_FILE = "Ultra Universal Remote Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.UUR.Ultra-Universal-Remote.watchkit.extension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -554,6 +845,24 @@
 			buildConfigurations = (
 				17123B5A1EB41D7E00C0C621 /* Debug */,
 				17123B5B1EB41D7E00C0C621 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		172C92DA1EBBF32500B948DB /* Build configuration list for PBXNativeTarget "Ultra Universal Remote Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				172C92D81EBBF32500B948DB /* Debug */,
+				172C92D91EBBF32500B948DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		172C92DC1EBBF32500B948DB /* Build configuration list for PBXNativeTarget "Ultra Universal Remote Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				172C92D61EBBF32500B948DB /* Debug */,
+				172C92D71EBBF32500B948DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
