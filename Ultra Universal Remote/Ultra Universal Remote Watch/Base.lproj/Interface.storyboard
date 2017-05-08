@@ -14,12 +14,13 @@
             <objects>
                 <controller identifier="devices" id="ZT3-l2-hiG" customClass="devicesList">
                     <items>
+                        <label alignment="left" verticalAlignment="center" text="Label" textAlignment="center" numberOfLines="0" id="ujm-Cb-S8V"/>
                         <table alignment="left" id="HmD-Vr-itj">
                             <items>
                                 <tableRow identifier="devicesRowController" id="r8l-Ty-Wya" customClass="devicesRowController">
                                     <group key="rootItem" width="1" alignment="left" id="4oS-jP-SbY">
                                         <items>
-                                            <label alignment="left" text="yo yo" id="uG6-Xr-D9u"/>
+                                            <label alignment="left" id="uG6-Xr-D9u"/>
                                         </items>
                                     </group>
                                     <connections>
@@ -31,10 +32,25 @@
                     </items>
                     <connections>
                         <outlet property="devicesTable" destination="HmD-Vr-itj" id="g18-mg-vZQ"/>
+                        <outlet property="errorLabel" destination="ujm-Cb-S8V" id="zV0-tq-31M"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="227" y="373"/>
+        </scene>
+        <!--Remote Controller-->
+        <scene sceneID="lXM-ep-36q">
+            <objects>
+                <controller id="D40-hn-3Wq" customClass="remoteController">
+                    <items>
+                        <label alignment="left" text="Label" id="kZS-zW-57Y"/>
+                    </items>
+                    <connections>
+                        <outlet property="deviceLabel" destination="kZS-zW-57Y" id="ph4-KI-oaa"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="472" y="373"/>
         </scene>
     </scenes>
 </document>

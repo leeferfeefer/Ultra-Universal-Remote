@@ -273,7 +273,7 @@
     switch (self.centralManager.state) {
         case CBManagerStatePoweredOff:
         {
-            //    [self clearDevices];
+            [self clearDevices];
             NSLog(@"state changed to powered off");
             
             break;
@@ -302,7 +302,7 @@
             
         case CBManagerStateResetting:
         {
-            // [self clearDevices];
+             [self clearDevices];
             NSLog(@"state changed to resetting");
             break;
         }
@@ -351,7 +351,14 @@
 
 
 
+-(void)clearDevices {
+    [self.deviceNames removeAllObjects];
+    [self.deviceList removeAllObjects];
 
+    self.selectedDevice = nil;
+
+    [self.deviceTableView reloadData];
+}
 
 
 
@@ -368,7 +375,7 @@
                                    replyHandler:^(NSDictionary *reply) {
                                        //handle reply from iPhone app here
 
-
+                                       NSLog(@"message from watch?");
                                    }
                                    errorHandler:^(NSError *error) {
                                        //catch any errors here
@@ -407,13 +414,30 @@
 }
 
 -(void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message replyHandler:(void (^)(NSDictionary<NSString *,id> * _Nonnull))replyHandler {
-    NSLog(@"message received");
+    NSLog(@"message received on iphone");
 
 
     NSLog(@"the message is %@", message);
 
     
-    
+    CBPeripheral *selectedDevice = self.deviceList[[message[@"index"] integerValue]];
+
+    if ([selectedDevice.name isEqualToString:arduinoName]) {
+
+        [self.centralManager stopScan];
+
+        self.selectedDevice = selectedDevice;
+
+        [self.centralManager connectPeripheral:self.selectedDevice options:nil];
+
+
+
+    } else {
+
+        NSLog(@"unknown way of connecting to device");
+        
+    }
+
 }
 
 /*
@@ -452,4 +476,11 @@
 }
 */
 
+- (IBAction)refreshButtonPressed:(UIButton *)sender {
+
+    NSLog(@"pressed");
+
+    [self clearDevices];
+    [self startScanning];
+}
 @end

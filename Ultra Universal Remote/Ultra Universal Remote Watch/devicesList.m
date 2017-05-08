@@ -31,6 +31,8 @@
         session.delegate = self;
         [session activateSession];
     }
+
+    [self.errorLabel setText:@"No devices detected. Check iPhone."];
 }
 
 - (void)willActivate {
@@ -52,6 +54,7 @@
     [self sendToiPhone:rowIndex];
 
 
+    [self presentControllerWithName:@"remoteController" context:nil];
 }
 
 
@@ -60,6 +63,12 @@
 -(void)loadTableItems {
 
     [self.devicesTable setNumberOfRows:[self.devices count] withRowType:@"devicesRowController"];
+
+    if ([self.devices count] == 0) {
+        [self.errorLabel setHidden:NO];
+    } else {
+        [self.errorLabel setHidden:YES];
+    }
 
 
     // Iterate over the rows and set the label and image for each one.
@@ -105,8 +114,11 @@
     NSLog(@"message received");
 }
 -(void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message replyHandler:(void (^)(NSDictionary<NSString *,id> * _Nonnull))replyHandler {
-    NSLog(@"message received");
+    NSLog(@"message received on watch");
 
+    NSDictionary *hi = [NSDictionary dictionaryWithObject:@"hi" forKey:@"message received on watch"];
+
+    replyHandler(hi);
 
     NSLog(@"the message is %@", message);
 

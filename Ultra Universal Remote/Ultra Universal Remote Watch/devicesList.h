@@ -13,6 +13,7 @@
 
 @interface devicesList : WKInterfaceController <WCSessionDelegate>
 
+@property (strong, nonatomic) IBOutlet WKInterfaceLabel *errorLabel;
 
 
 @property (strong, nonatomic) IBOutlet WKInterfaceTable *devicesTable;

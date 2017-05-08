@@ -28,6 +28,7 @@
 		172C92E31EBC15D000B948DB /* devicesList.m in Sources */ = {isa = PBXBuildFile; fileRef = 172C92DF1EBBF46000B948DB /* devicesList.m */; };
 		172C92EA1EBC191400B948DB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172C92B61EBBF32500B948DB /* Interface.storyboard */; };
 		179413851EBE1F3B00BE6F3B /* devicesRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179413841EBE1F3B00BE6F3B /* devicesRowController.m */; };
+		17DFB61D1EBEAAD100C5F7D0 /* remoteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DFB61C1EBEAAD100C5F7D0 /* remoteController.m */; };
 		17F8AB461EBC27DA005DFFEF /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172C92B61EBBF32500B948DB /* Interface.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,8 @@
 		179413831EBE1F3B00BE6F3B /* devicesRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = devicesRowController.h; sourceTree = "<group>"; };
 		179413841EBE1F3B00BE6F3B /* devicesRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = devicesRowController.m; sourceTree = "<group>"; };
 		17DFB61A1EBE2E2A00C5F7D0 /* Ultra Universal Remote Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Ultra Universal Remote Watch Extension.entitlements"; sourceTree = "<group>"; };
+		17DFB61B1EBEAAD100C5F7D0 /* remoteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = remoteController.h; sourceTree = "<group>"; };
+		17DFB61C1EBEAAD100C5F7D0 /* remoteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = remoteController.m; sourceTree = "<group>"; };
 		17F8AB441EBC214B005DFFEF /* Ultra Universal Remote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Ultra Universal Remote.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -256,6 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				17DFB61A1EBE2E2A00C5F7D0 /* Ultra Universal Remote Watch Extension.entitlements */,
+				17DFB61B1EBEAAD100C5F7D0 /* remoteController.h */,
+				17DFB61C1EBEAAD100C5F7D0 /* remoteController.m */,
 				179413831EBE1F3B00BE6F3B /* devicesRowController.h */,
 				179413841EBE1F3B00BE6F3B /* devicesRowController.m */,
 				172C92DE1EBBF46000B948DB /* devicesList.h */,
@@ -521,6 +526,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				179413851EBE1F3B00BE6F3B /* devicesRowController.m in Sources */,
+				17DFB61D1EBEAAD100C5F7D0 /* remoteController.m in Sources */,
 				172C92E31EBC15D000B948DB /* devicesList.m in Sources */,
 				172C92CC1EBBF32500B948DB /* ExtensionDelegate.m in Sources */,
 				172C92CF1EBBF32500B948DB /* NotificationController.m in Sources */,

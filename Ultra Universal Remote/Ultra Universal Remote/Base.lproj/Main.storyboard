@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="anp-dN-7xP" id="KMq-VY-N91">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -35,7 +35,18 @@
                             <outlet property="delegate" destination="dyu-9a-ONi" id="rzP-Re-84i"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="IqS-8A-tVZ"/>
+                    <navigationItem key="navigationItem" id="IqS-8A-tVZ">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="hvd-Kd-YTc">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TtK-hB-knl">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="refreshButtonPressed:" destination="dyu-9a-ONi" eventType="touchUpInside" id="eWo-vs-fR8"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="deviceTableView" destination="7DV-4s-ZNe" id="W2U-XV-TPZ"/>
                         <segue destination="0ja-Ld-caY" kind="show" identifier="showDeviceUI" id="Bu5-fR-Ijh"/>
@@ -44,35 +55,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qOJ-Xz-Vxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2124" y="-277"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="7Tr-g2-DUm">
-            <objects>
-                <viewController id="5xf-zm-gzu" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="38N-ES-qsb"/>
-                        <viewControllerLayoutGuide type="bottom" id="R9W-mJ-lyL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bNR-yK-IKZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZZ-44-8lc">
-                                <rect key="frame" x="173" y="298" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="dyu-9a-ONi" kind="show" id="PJD-jK-FdB"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="NXD-7v-sZM"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hXG-uX-clS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1246" y="-277"/>
         </scene>
         <!--Device Remote-->
         <scene sceneID="Qr2-bL-xuB">
@@ -237,7 +219,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="5xf-zm-gzu" kind="relationship" relationship="rootViewController" id="ru3-HJ-oPL"/>
+                        <segue destination="dyu-9a-ONi" kind="relationship" relationship="rootViewController" id="9lF-dg-KpZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXa-Eu-xAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
