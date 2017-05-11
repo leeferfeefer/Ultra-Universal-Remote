@@ -38,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="227" y="373"/>
         </scene>
-        <!--Remote Controller-->
+        <!--remoteController-->
         <scene sceneID="lXM-ep-36q">
             <objects>
-                <controller id="D40-hn-3Wq" customClass="remoteController">
+                <controller identifier="remoteController" id="D40-hn-3Wq" customClass="remoteController">
                     <items>
                         <label alignment="left" text="Label" id="kZS-zW-57Y"/>
                     </items>

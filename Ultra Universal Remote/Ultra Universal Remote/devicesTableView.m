@@ -194,7 +194,7 @@
 
     [self.deviceNames addObject:peripheral.name];
 
-    [self sendToWatch];
+    [self sendToWatch:@{@"deviceNames" : self.deviceNames}];
 
     // Send data to watch
 //    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.UUR.sharedData"];
@@ -243,7 +243,7 @@
     
     [self stopScanning];
 
-
+    [self sendToWatch:@{@"connectionStatus" : @"connected"}];
 
     [self performSegueWithIdentifier:@"showDeviceUI" sender:nil];
 }
@@ -362,31 +362,26 @@
 
 
 
+#pragma mark - Connectivity Methods
 
-
--(void)sendToWatch {
+-(void)sendToWatch:(NSDictionary *)message{
 
     if ([[WCSession defaultSession] isReachable]) {
         //Here is where you will send you data
 
-        NSLog(@"reachable");
+        NSLog(@"watch reachable");
 
-        [[WCSession defaultSession] sendMessage:[NSDictionary dictionaryWithObject:self.deviceNames forKey:@"deviceNames"]
+        [[WCSession defaultSession] sendMessage:message
                                    replyHandler:^(NSDictionary *reply) {
-                                       //handle reply from iPhone app here
-
-                                       NSLog(@"message from watch?");
-                                   }
-                                   errorHandler:^(NSError *error) {
-                                       //catch any errors here
+                                       NSLog(@"%@", reply[@"reply"]);
+                                   } errorHandler:^(NSError *error) {
+                                       NSLog(@"error sending message to watch");
                                    }];
 
 
     } else {
-        NSLog(@"not reachable");
-        
+        NSLog(@"watch not reachable");
     }
-
 }
 
 
@@ -395,9 +390,7 @@
 #pragma mark - Session Delegate Methods
 
 -(void)session:(WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(NSError *)error {
-
     NSLog(@"session activated");
-
 }
 -(void)sessionDidBecomeInactive:(WCSession *)session {
     NSLog(@"became inactive");
@@ -419,7 +412,9 @@
 
     NSLog(@"the message is %@", message);
 
-    
+    replyHandler(@{@"reply" : @"Index received"});
+
+
     CBPeripheral *selectedDevice = self.deviceList[[message[@"index"] integerValue]];
 
     if ([selectedDevice.name isEqualToString:arduinoName]) {
@@ -429,8 +424,6 @@
         self.selectedDevice = selectedDevice;
 
         [self.centralManager connectPeripheral:self.selectedDevice options:nil];
-
-
 
     } else {
 

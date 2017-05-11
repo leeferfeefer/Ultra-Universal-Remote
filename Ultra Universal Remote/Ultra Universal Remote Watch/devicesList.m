@@ -50,11 +50,7 @@
 
     NSLog(@"selected %ld index", (long)rowIndex);
 
-
-    [self sendToiPhone:rowIndex];
-
-
-    [self presentControllerWithName:@"remoteController" context:nil];
+    [self sendToiPhone:@{@"index" : [NSNumber numberWithInteger:rowIndex]}];
 }
 
 
@@ -114,45 +110,46 @@
     NSLog(@"message received");
 }
 -(void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message replyHandler:(void (^)(NSDictionary<NSString *,id> * _Nonnull))replyHandler {
+
     NSLog(@"message received on watch");
 
-    NSDictionary *hi = [NSDictionary dictionaryWithObject:@"hi" forKey:@"message received on watch"];
 
-    replyHandler(hi);
+    replyHandler(@{@"reply" : @"Device names received"});
 
     NSLog(@"the message is %@", message);
 
-    [self loadTableItems];
+    if ([[message allKeys] containsObject:@"deviceNames"]) {
 
-    self.devices = message[@"deviceNames"];
+        [self loadTableItems];
 
+        self.devices = message[@"deviceNames"];
 
+    } else if ([[message allKeys] containsObject:@"connectionStatus"]) {
+
+        if ([message[@"connectionStatus"] isEqualToString:@"connected"]) {
+
+            [self presentControllerWithName:@"remoteController" context:nil];
+        }
+    }
 }
-
-
--(void)sendToiPhone:(NSInteger)index {
+-(void)sendToiPhone:(NSDictionary *)message {
 
     if ([[WCSession defaultSession] isReachable]) {
         //Here is where you will send you data
 
-        NSLog(@"reachable");
+        NSLog(@"iPhone reachable");
 
-        [[WCSession defaultSession] sendMessage:[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:index] forKey:@"index"]
+        [[WCSession defaultSession] sendMessage:message
                                    replyHandler:^(NSDictionary *reply) {
-                                       //handle reply from iPhone app here
-
-
-                                   }
-                                   errorHandler:^(NSError *error) {
-                                       //catch any errors here
+                                       NSLog(@"%@", reply[@"reply"]);
+                                   } errorHandler:^(NSError *error) {
+                                       NSLog(@"error sending message to iPhone");
                                    }];
         
         
     } else {
-        NSLog(@"not reachable");
-        
+        NSLog(@"iPhone not reachable");
     }
-    
 }
 
 
