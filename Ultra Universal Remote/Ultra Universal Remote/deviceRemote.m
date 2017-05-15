@@ -24,9 +24,12 @@
 @property (nonatomic, strong) CBService *dataService;
 @property (nonatomic, strong) CBCharacteristic *dataCharacteristic;
 
+
+
+
 @property BOOL appleTV;
 @property BOOL denTV;
-
+@property BOOL homeTV;
 
 
 @end
@@ -56,6 +59,8 @@
 }
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+
+    [self.centralManager cancelPeripheralConnection:self.device];
 
     // Send message to watch to exit controller
 }
@@ -219,6 +224,8 @@
         [self sendCommand:self.codeManager.apple_left];
     } else if (self.denTV) {
         [self sendCommand:@[self.codeManager.den_tv_vol_down]];
+    } else if (self.homeTV) {
+        [self sendCommand:@[self.codeManager.home_tv_vol_down]];
     }
 }
 -(void)rightAction{
@@ -226,6 +233,8 @@
         [self sendCommand:self.codeManager.apple_right];
     } else if (self.denTV) {
         [self sendCommand:@[self.codeManager.den_tv_vol_up]];
+    } else if (self.homeTV) {
+        [self sendCommand:@[self.codeManager.home_tv_vol_up]];
     }
 }
 -(void)selectAction{
@@ -267,6 +276,11 @@
 
     } else if (self.denTV) {
         [self.device writeValue:[@"DenTV $" dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
+
+        commandString = command[0];
+
+    } else if (self.homeTV) {
+        [self.device writeValue:[@"HomeTV $" dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.dataCharacteristic type:CBCharacteristicWriteWithoutResponse];
 
         commandString = command[0];
     }
@@ -382,13 +396,25 @@
 
 
 
+#pragma mark - Segment Control Methods
 
 - (IBAction)segmentControlValueChanged:(UISegmentedControl *)sender {
 
     NSLog(@"Device changed");
 
-    self.appleTV = !self.appleTV;
-    self.denTV = !self.denTV;
+    if (sender.selectedSegmentIndex == 0) {
+        self.appleTV = YES;
+        self.denTV = NO;
+        self.homeTV = NO;
+    } else if (sender.selectedSegmentIndex == 1) {
+        self.appleTV = NO;
+        self.denTV = YES;
+        self.homeTV = NO;
+    } else if (sender.selectedSegmentIndex == 2) {
+        self.appleTV = NO;
+        self.denTV = NO;
+        self.homeTV = YES;
+    }
 
 
     if (self.appleTV) {
@@ -397,7 +423,7 @@
         [self.centerButton setTitle:@"Select" forState:UIControlStateNormal];
         [self.leftButton setTitle:@"Left" forState:UIControlStateNormal];
         [self.rightButton setTitle:@"Right" forState:UIControlStateNormal];
-    } else if (self.denTV) {
+    } else if (self.denTV || self.homeTV) {
         [self.playPauseButton setHidden:YES];
         [self.menuButton setTitle:@"Input" forState:UIControlStateNormal];
         [self.centerButton setTitle:@"Power" forState:UIControlStateNormal];

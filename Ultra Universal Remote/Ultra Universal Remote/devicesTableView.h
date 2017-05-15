@@ -18,4 +18,12 @@
 @property (strong, nonatomic) IBOutlet UITableView *deviceTableView;
 
 - (IBAction)refreshButtonPressed:(UIButton *)sender;
+
+
+
+
+
+
+
+
 @end

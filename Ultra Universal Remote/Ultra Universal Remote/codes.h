@@ -33,4 +33,15 @@
 
 
 
+#pragma mark - Home TV Codes
+@property (nonatomic, strong) NSString *home_tv_vol_up;
+@property (nonatomic, strong) NSString *home_tv_vol_down;
+
+
+
+
+
+
+
+
 @end

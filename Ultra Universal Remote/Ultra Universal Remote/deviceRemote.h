@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) CBPeripheral *device;
 
+@property (strong, nonatomic) CBCentralManager *centralManager;
+
 
 @property (nonatomic, strong) IBOutlet  UIActivityIndicatorView *commandSpinner;
 

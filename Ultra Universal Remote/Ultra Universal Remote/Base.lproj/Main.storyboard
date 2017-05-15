@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="anp-dN-7xP" id="KMq-VY-N91">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -148,6 +148,7 @@
                                 <segments>
                                     <segment title="Apple TV"/>
                                     <segment title="Den TV"/>
+                                    <segment title="Home TV"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentControlValueChanged:" destination="0ja-Ld-caY" eventType="valueChanged" id="nIh-ep-glP"/>

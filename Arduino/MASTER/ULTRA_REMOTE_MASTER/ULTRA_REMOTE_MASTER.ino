@@ -1,8 +1,5 @@
-
-
 /*
    Dan Fincher
-
 */
 
 /* Info about IRremote:
@@ -30,19 +27,24 @@ SoftwareSerial mySerial(RX, TX); // (10, 11) The RX and TX on aruidno and HC - 0
 
 
 
-//TV Codes
-long tv_pow = 0x20DF10EF;
-long tv_input = 0x20DFF40B;
-long tv_vol_up = 0x20DF40BF;
-long tv_vol_down = 0x20DFC03F;
+//Den TV Codes
+const long tv_pow = 0x20DF10EF;
+const long tv_input = 0x20DFF40B;
+const long tv_vol_up = 0x20DF40BF;
+const long tv_vol_down = 0x20DFC03F;
 
 //Apple TV Codes
 
-// Data Variables
+// Home TV Codes
+const long home_vol_up = 0xE0E0E01F;
 
+
+
+
+
+// Data Variables
 char userInput;
 String device;
-
 
 String recvDataString = "";
 String recvTotalDataString = "";
@@ -55,6 +57,7 @@ int numChunksCount = 0;
 
 boolean debugMode = false;
 
+int counter = 0;
 
 
 void setup() {
@@ -84,8 +87,15 @@ void loop() {
       } else {
         Serial.println("Debug mode is not initiated");
       }
+    } else if (userInput == 't') {
+      // Test
+
+      sendHEXCommand(home_vol_up);
+      
     }
-  }
+  } 
+
+
 
   // Received data available
   if (mySerial.available()) {
@@ -102,11 +112,14 @@ void loop() {
       recvDataString.remove(recvDataString.length()-2);
       
       if (recvDataString == "AppleTV") {
-        device = "AppleTV";
+        device = recvDataString;
         commandArrayLen = 136;
       } else if (recvDataString == "DenTV") {
-        device = "DenTV";
+        device = recvDataString;
         commandArrayLen = 72;
+      } else if (recvDataString == "HomeTV") {
+        device = recvDataString;
+        
       }
       
       // Clear for next data
@@ -240,6 +253,15 @@ void loop() {
               break;
               
           }
+        } else if (device == "HomeTV") {
+
+            char command[20];
+            recvTotalDataString.toCharArray(command, 20);
+            
+            const char* string = command;
+            long unsigned commandHex = strtoul(string, 0, 16);
+            
+            sendHEXCommand(commandHex);
         }
         
           // Zero out for next time
@@ -281,6 +303,7 @@ void sendHEXCommand(long command) {
     mySerial.write("Sent");
     lightOff();
 }
+
 
 
 void lightOn() {

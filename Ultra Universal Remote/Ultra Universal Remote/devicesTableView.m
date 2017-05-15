@@ -346,6 +346,7 @@
         
         deviceRemote *remote = [segue destinationViewController];
         remote.device = self.selectedDevice;
+        remote.centralManager = self.centralManager;
     }
 }
 
