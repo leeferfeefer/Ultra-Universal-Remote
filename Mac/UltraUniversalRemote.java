@@ -1,5 +1,5 @@
 /*
-Dan Fincher
+@author Dan Fincher
 
  - JSR-82, the official Java Bluetooth API.
 
@@ -12,7 +12,21 @@ import javax.bluetooth.*;
 
 
 class UltraUniversalRemote {
+
+
+	private static boolean isDebugMode;
+
+	private static final String errorRunMsg = "\nTo run, type: \n"
+		+ "java -cp bluecove.jar:. UltraUniversalRemote.java -d \n"
+		+ "-d = debug mode (optional) \n";
+
+
+	static {
+		print("\nUltra Universal Remote Initiated");
+		print(errorRunMsg);
+	}
 	
+
 
 
 
@@ -21,8 +35,48 @@ class UltraUniversalRemote {
 
 	public static void main(String[] args) {
 		
-		System.out.println("Ultra Universal Remote Initiated");
+		argsChecker(args);
+
+		UURLocalDevice uurLocalDevice = new UURLocalDevice(isDebugMode);
+
+
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/* ------------------------
+			    Methods
+	-------------------------- */ 
+
+	private static void print(String message) {
+		System.out.println(message);
+	}
+	private static void argsChecker(String[] args) {
+		int argsLength = args.length;
+		if (argsLength == 1) {
+			debugMode();
+		}
+	}
+	private static void debugMode() {
+		print("\n Debug Mode Initiated");
+		isDebugMode = true;
+	}
+
+
 
 
 }

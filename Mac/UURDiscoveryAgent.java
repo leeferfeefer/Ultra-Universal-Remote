@@ -1,5 +1,5 @@
 /*
-Dan Fincher
+@author Dan Fincher
 
  - JSR-82, the official Java Bluetooth API.
 
@@ -10,7 +10,9 @@ Dan Fincher
 
 import javax.bluetooth.*;
 
-
 class UURDiscoveryAgent extends DiscoveryAgent {
+
+	UURDiscoveryAgent() {
+	}
 	
 }
