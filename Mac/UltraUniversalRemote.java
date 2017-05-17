@@ -38,6 +38,14 @@ class UltraUniversalRemote {
 		argsChecker(args);
 
 		UURLocalDevice uurLocalDevice = new UURLocalDevice(isDebugMode);
+		LocalDevice localDevice = uurLocalDevice.getUURLocalDevice();
+		if (localDevice != null) {
+			
+			UURDiscoveryAgent uurAgent = new UURDiscoveryAgent(isDebugMode);
+			uurAgent.discoverDevices(localDevice);
+
+
+		}
 
 
 	}
@@ -72,7 +80,7 @@ class UltraUniversalRemote {
 		}
 	}
 	private static void debugMode() {
-		print("\n Debug Mode Initiated");
+		print("\nDebug Mode Initiated\n");
 		isDebugMode = true;
 	}
 

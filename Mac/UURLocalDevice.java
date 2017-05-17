@@ -27,22 +27,25 @@ class UURLocalDevice {
 		try {
 			uurLocalDevice = LocalDevice.getLocalDevice();
 
-			if (isDebugMode) {
-				print("\nUURLocalDevice Class:");
-				print("UUR Local Device is " + uurLocalDevice.getFriendlyName());
+			if (uurLocalDevice.isPowerOn()) {
+				if (isDebugMode) {
+					print("\nUURLocalDevice Class:");
+					print("Local device is on");
+					print("UUR Local Device name: " + uurLocalDevice.getFriendlyName());
+					print("UUR Local Device Bluetooth Address: " + uurLocalDevice.getBluetoothAddress());
+				}
+			} else {
+				if (isDebugMode) {
+					print("Local device is off");
+				}
+				uurLocalDevice = null;
 			}
 		} catch (BluetoothStateException bse) {
-			System.out.println(bse.getMessage());
+			print("\nError attempting to get UUR Local Device:");
+			print(bse.getMessage());
 		}
 		return uurLocalDevice;
 	}
-
-
-
-	// DiscoveryAgent getUURDiscoveryAgent(LocalDevice uurLocalDevice) {
-	// 	return uurLocalDevice.getDiscoveryAgent();
-	// }
-
 
 
 
@@ -50,7 +53,7 @@ class UURLocalDevice {
 			    Methods
 	-------------------------- */ 
 
-	private static void print(String message) {
+	private void print(String message) {
 		System.out.println(message);
 	}
 

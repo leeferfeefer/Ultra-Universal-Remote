@@ -15,7 +15,7 @@ default: classes
 	
 
 JARFILE = bluecove.jar
-CLASSES = UltraUniversalRemote.java UURLocalDevice.java 
+CLASSES = UltraUniversalRemote.java UURLocalDevice.java UURDiscoveryAgent.java UURDiscoveryListener.java
 
 
 
