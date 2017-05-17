@@ -16,14 +16,22 @@
 #include <IRremote.h>
 #include <SoftwareSerial.h>
 
+IRsend irsend;
+
 // PINS
 const int LEDPin = 8;
 int LED = 13;
-int RX = 10;
-int TX = 11;
 
-IRsend irsend;
-SoftwareSerial mySerial(RX, TX); // (10, 11) The RX and TX on aruidno and HC - 08 are switched
+// iPhone Connectivity 
+int iPhoneRX = 10;
+int iPhoneTX = 11;
+SoftwareSerial iPhoneSerial(iPhoneRX, iPhoneTX); // (10, 11) The RX and TX on aruidno and HC - 08 are switched
+
+// mac Connectivity
+int macRX = 6;
+int macTX = 5;
+SoftwareSerial macSerial(macRx, macTX);
+
 
 
 
@@ -64,7 +72,8 @@ void setup() {
   pinMode(LEDPin, OUTPUT);
 
   Serial.begin(9600);
-  mySerial.begin(9600);
+  iPhoneSerial.begin(9600);
+  macSerial.begin(9600);
 
   Serial.print("Ultra Remote Initiated\n");
   
@@ -98,7 +107,7 @@ void loop() {
 
 
   // Received data available
-  if (mySerial.available()) {
+  if (iPhoneSerial.available()) {
 
     lightOn();
 
@@ -271,6 +280,15 @@ void loop() {
       }
     }
   }
+
+
+
+  if (macSerial.available()) {
+    Serial.println("Data received from mac");
+  }
+
+
+  
 }
 
 
