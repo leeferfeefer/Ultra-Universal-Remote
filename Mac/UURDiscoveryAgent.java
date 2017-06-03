@@ -14,18 +14,21 @@ import java.util.Vector;
 class UURDiscoveryAgent {
 
 	private boolean isDebugMode; 
+	private LocalDevice uurLocalDevice;
+	private	DiscoveryAgent agent;
 
 
-
-	UURDiscoveryAgent(boolean isDebugMode) {
+	UURDiscoveryAgent(boolean isDebugMode, LocalDevice uurLocalDevice) {
 		this.isDebugMode = isDebugMode;
+		this.uurLocalDevice = uurLocalDevice;
+
+		this.agent = uurLocalDevice.getDiscoveryAgent();
 	}
 
 
 
 
-	void discoverDevices(LocalDevice uurLocalDevice) {
-		DiscoveryAgent agent = uurLocalDevice.getDiscoveryAgent();
+	void discoverDevices() {
 
 		Object lock = new Object();
 
@@ -63,28 +66,28 @@ class UURDiscoveryAgent {
 			print("No devices found"); 
 		} else { 
 
+			if (isDebugMode) {
 
+				print("\nBluetooth Devices: "); 
+			
+				for (int i = 0; i < deviceCount; i++) { 
+					RemoteDevice remoteDevice = (RemoteDevice)deviceList.elementAt(i);
 
-			// If found device... connect to it send commands
+					try {
+						String deviceName = remoteDevice.getFriendlyName(false);
 
+						print("The device name is: " + deviceName);
 
-
-			// //print bluetooth device addresses and names in the format [ No. address (name) ] 
-			// System.out.println("Bluetooth Devices: "); 
-			// for (int i = 0; i < deviceCount; i++) { 
-			// 	RemoteDevice remoteDevice = (RemoteDevice)deviceList.elementAt(i);
-
-			// 	System.out.println((i+1) + ". " + remoteDevice.getBluetoothAddress()); 
-			// 		// + 
-			// 			// " (" + remoteDevice.getFriendlyName(true) + ")");
-			// 	try {
-					 
-
-			// 	} catch (Exception e) {
-			// 		print("\nError attempting to get UUR Local Device:");
-			// 		print(e.getMessage());
-			// 	} 
-			// } 
+						if (deviceName.equals("HC-06")) {
+							print("Arduino found");
+						}
+						
+					} catch (Exception e) {
+						print("\nError attempting to get UUR Remote Device name");
+						print(e.getMessage());
+					} 
+				} 
+			}
 		} 
 	}
 
@@ -99,6 +102,8 @@ class UURDiscoveryAgent {
 		System.out.println(message);
 	}
 	
-
+	RemoteDevice[] getDevices() {
+		return agent.retrieveDevices(DiscoveryAgent.CACHED);
+	}
 
 }

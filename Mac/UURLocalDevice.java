@@ -41,7 +41,7 @@ class UURLocalDevice {
 				uurLocalDevice = null;
 			}
 		} catch (BluetoothStateException bse) {
-			print("\nError attempting to get UUR Local Device:");
+			print("\nError attempting to get UUR Local Device name");
 			print(bse.getMessage());
 		}
 		return uurLocalDevice;
@@ -56,6 +56,8 @@ class UURLocalDevice {
 	private void print(String message) {
 		System.out.println(message);
 	}
+
+
 
 
 }

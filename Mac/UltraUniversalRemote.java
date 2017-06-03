@@ -37,17 +37,45 @@ class UltraUniversalRemote {
 		
 		argsChecker(args);
 
+
+
+		loadGUI();
+
+
+
 		UURLocalDevice uurLocalDevice = new UURLocalDevice(isDebugMode);
 		LocalDevice localDevice = uurLocalDevice.getUURLocalDevice();
 		if (localDevice != null) {
 			
-			UURDiscoveryAgent uurAgent = new UURDiscoveryAgent(isDebugMode);
-			uurAgent.discoverDevices(localDevice);
+			UURDiscoveryAgent uurAgent = new UURDiscoveryAgent(isDebugMode, localDevice);
+			uurAgent.discoverDevices();
 
+			RemoteDevice[] devices = uurAgent.getDevices();
+			RemoteDevice arduino;
 
+			if (isDebugMode) {
+				print("\nUltra Universal Remote: ");
+				for (int i = 0; i < devices.length; i++) {
+					RemoteDevice device = devices[i];
+
+					try {
+						String deviceName = device.getFriendlyName(false);
+
+						print("The device name is: " + deviceName);
+
+						if (deviceName.equals("HC-06")) {
+							print("Arduino found");
+						}
+
+						
+					} catch (Exception e) {
+						print("\nError attempting to get UUR Remote Device name");
+						print(e.getMessage());
+					} 
+					
+				}
+			}
 		}
-
-
 	}
 
 
@@ -86,5 +114,8 @@ class UltraUniversalRemote {
 
 
 
+	private static void loadGUI() {
+		
+	}
 
 }

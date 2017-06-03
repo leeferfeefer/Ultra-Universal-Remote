@@ -30,7 +30,7 @@ class UURDiscoveryListener implements DiscoveryListener {
 	public void deviceDiscovered(RemoteDevice btDevice, DeviceClass cod) { 
 
 		if (isDebugMode) {
-			print("Device discovered: " + btDevice.getBluetoothAddress()); //add the device to the vector 
+			print("Device discovered: " + btDevice.getBluetoothAddress());
 		}
 
 		if (!deviceList.contains(btDevice)){ 
@@ -38,10 +38,11 @@ class UURDiscoveryListener implements DiscoveryListener {
 		} 
 	} 
 
-	public void servicesDiscovered(int transID, ServiceRecord[] servRecord) { } //no need to implement this method since services are not being discovered 
+	public void servicesDiscovered(int transID, ServiceRecord[] servRecord) { } 
 
-	public void serviceSearchCompleted(int transID, int respCode) { } /** * This callback method will be called when the device discovery is * completed. */ 
+	public void serviceSearchCompleted(int transID, int respCode) { } 
 
+	
 	public void inquiryCompleted(int discType) { 
 		synchronized(lock) { 
 			lock.notify(); 
