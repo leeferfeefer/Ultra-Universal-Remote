@@ -16,7 +16,7 @@ class UURDiscoveryAgent {
 	private boolean isDebugMode; 
 	private LocalDevice uurLocalDevice;
 	private	DiscoveryAgent agent;
-
+	private String deviceURL;
 
 	UURDiscoveryAgent(boolean isDebugMode, LocalDevice uurLocalDevice) {
 		this.isDebugMode = isDebugMode;
@@ -31,7 +31,6 @@ class UURDiscoveryAgent {
 	void discoverDevices() {
 
 		Object lock = new Object();
-
 		UURDiscoveryListener deviceListener = new UURDiscoveryListener(lock, isDebugMode);
 
 		try {
@@ -54,6 +53,8 @@ class UURDiscoveryAgent {
 			e.printStackTrace();
 		}
 
+
+		
 		
 		Vector deviceList = deviceListener.getDeviceList();
 		int deviceCount = deviceList.size();
@@ -62,6 +63,7 @@ class UURDiscoveryAgent {
 			print("The device count is " + deviceCount);
 		}
 
+		/*
 		if (deviceCount <= 0) { 
 			print("No devices found"); 
 		} else { 
@@ -89,6 +91,38 @@ class UURDiscoveryAgent {
 				} 
 			}
 		} 
+		*/
+		
+
+	}
+
+
+	void discoverDeviceServices(int[] attributeIDs, UUID[] searchUUIDs, RemoteDevice remoteDevice) {
+
+		Object lock = new Object();
+		UURDiscoveryListener deviceListener = new UURDiscoveryListener(lock, isDebugMode);
+
+		if (isDebugMode) {
+			print("Discovering device services...");
+		}
+
+		try {
+			agent.searchServices(attributeIDs, searchUUIDs, remoteDevice, deviceListener);
+		} catch (Exception e) {
+			print("Could not discover device services");
+			print(e.getMessage()); 
+		}
+
+		// Pause main thread to search for device services
+		try {
+			synchronized(lock){
+				lock.wait();
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		deviceURL = deviceListener.getDeviceURL();
 	}
 
 
@@ -104,6 +138,10 @@ class UURDiscoveryAgent {
 	
 	RemoteDevice[] getDevices() {
 		return agent.retrieveDevices(DiscoveryAgent.CACHED);
+	}
+
+	String getDeviceURL() {
+		return deviceURL;
 	}
 
 }
